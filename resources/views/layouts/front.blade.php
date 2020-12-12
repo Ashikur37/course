@@ -73,10 +73,9 @@
                             <nav class="site-navigation flex justify-content-end align-items-center">
                                 <ul class="flex flex-column flex-lg-row justify-content-lg-end align-content-center">
                                     <li class="current-menu-item"><a href="index.html">Home</a></li>
-                                    <li><a href="#">About</a></li>
-                                    <li><a href="#">Courses</a></li>
-                                    <li><a href="#">blog</a></li>
-                                    <li><a href="#">Contact</a></li>
+                                    <li><a href="{{route('service')}}">Services</a></li>
+                                    <li><a href="{{route('teacher')}}">Teachers Info</a></li>
+                                    <li><a href="{{route('contact')}}">Contact</a></li>
                                 </ul>
 
                                 <div class="hamburger-menu d-lg-none">
