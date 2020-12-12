@@ -19,8 +19,11 @@ Route::get('/', function () {
 
 // Admin routes
 Route::group(['prefix' => 'admin',  'middleware' => 'is_admin'],function() {
-Route::get('/home','App\Http\Controllers\Admin\HomeController@index');
+    Route::get('/home','App\Http\Controllers\Admin\HomeController@index');
+    Route::get('/course/delete/{course}','App\Http\Controllers\Admin\CourseController@destroy');
 
+    //course/delete/
+    Route::resource('/course','App\Http\Controllers\Admin\CourseController'); 
 });
 
 
