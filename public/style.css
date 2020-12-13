@@ -1954,7 +1954,7 @@ ul.black-doted {
 .team-member img {
     width: 180px;
     max-width: 100%;
-    border-radius: 50%;
+    height: 80px;
 }
 
 .team-member h3 {

@@ -25,7 +25,7 @@
                 <div class="col-12 col-md-6 col-lg-3">
                     <a href="{{URL::to('/academic?department=CSE')}}">
                         <div class="team-member">
-                            <img src="" alt="">
+                            <img src="{{URL::to('/images/logo-3.png')}}" alt="">
                             <h3>CSE</h3>
                         </div>
                     </a>
