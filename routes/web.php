@@ -29,6 +29,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'is_admin'],function() {
 Route::get('/contact','App\Http\Controllers\Front\PageController@contact')->name('contact'); 
 Route::get('/services','App\Http\Controllers\Front\PageController@service')->name('service'); 
 Route::get('/teacher-info','App\Http\Controllers\Front\PageController@teacher')->name('teacher'); 
+Route::get('/academic','App\Http\Controllers\Front\PageController@academic')->name('academic'); 
 
 Route::get('/dashboard', function () {
     return view('dashboard');

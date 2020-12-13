@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-12">
                 <header class="entry-header">
-                    <h1 style="color:#fff">Services</h1>
+                    <h1 style="color:#fff">Academic</h1>
                 </header><!-- .entry-header -->
             </div><!-- .col -->
         </div><!-- .row -->
@@ -18,15 +18,15 @@
     <div class="container-fluid">
         <br>
         <center>
-        <h1>Academic</h1>
-        <center>
+            <h1>{{request()->department}}</h1>
+        </center>
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-3">
                     <a href="{{URL::to('/academic?department=CSE')}}">
                         <div class="team-member">
                             <img src="" alt="">
-                            <h3>CSE</h3>
+                            <h3>Computer Fundamental</h3>
                         </div>
                     </a>
                 </div>
@@ -34,7 +34,7 @@
                     <a href="{{URL::to('/academic?department=EEE')}}">
                         <div class="team-member">
                             <img src="" alt="">
-                            <h3>EEE</h3>
+                            <h3>SPL</h3>
                         </div>
                     </a>
                 </div>
@@ -42,7 +42,7 @@
                     <a href="{{URL::to('/academic?department=Math')}}">
                         <div class="team-member">
                             <img src="" alt="">
-                            <h3>Math</h3>
+                            <h3>Data Structure</h3>
                         </div>
                     </a>
                 </div>
@@ -50,7 +50,7 @@
                     <a href="{{URL::to('/academic?department=Economics')}}">
                         <div class="team-member">
                             <img src="" alt="">
-                            <h3>Economics</h3>
+                            <h3>Algorithm</h3>
                         </div>
                     </a>
                 </div>
@@ -58,7 +58,7 @@
                     <a href="{{URL::to('/academic?department=CSE')}}">
                         <div class="team-member">
                             <img src="" alt="">
-                            <h3>English</h3>
+                            <h3>Operating System</h3>
                         </div>
                     </a>
                 </div>
@@ -66,7 +66,7 @@
                     <a href="{{URL::to('/academic?department=BBA')}}">
                         <div class="team-member">
                             <img src="" alt="">
-                            <h3>BBA</h3>
+                            <h3>Database Management</h3>
                         </div>
                     </a>
                 </div>
@@ -74,7 +74,7 @@
                     <a href="{{URL::to('/academic?department=EEE')}}">
                         <div class="team-member">
                             <img src="" alt="">
-                            <h3>EEE</h3>
+                            <h3>Java</h3>
                         </div>
                     </a>
                 </div>
@@ -82,54 +82,12 @@
                     <a href="{{URL::to('/academic?department=Unani')}}">
                         <div class="team-member">
                             <img src="" alt="">
-                            <h3>Unani</h3>
+                            <h3>Computer Networks</h3>
                         </div>
                     </a>
                 </div>
             </div>
         </div>
-        <br>
-        <center>
-            <h1>Non Academic</h1>
-            <center>
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <a href="{{URL::to('/academic?department=CSE')}}">
-                            <div class="team-member">
-                                <img src="" alt="">
-                                <h3>Current Affairs</h3>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <a href="{{URL::to('/academic?department=EEE')}}">
-                            <div class="team-member">
-                                <img src="" alt="">
-                                <h3>Literature</h3>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <a href="{{URL::to('/academic?department=Math')}}">
-                            <div class="team-member">
-                                <img src="" alt="">
-                                <h3>Job Preparation</h3>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-3">
-                        <a href="{{URL::to('/academic?department=Economics')}}">
-                            <div class="team-member">
-                                <img src="" alt="">
-                                <h3>Motivation</h3>
-                            </div>
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-            <br>
     </div>
 </div>
 @endsection
