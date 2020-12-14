@@ -52,7 +52,7 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword1">Password</label>
-                        <input required name="password" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter password">
+                        <input required name="password" type="password" class="form-control" id="exampleInputEmail1" placeholder="Enter password">
                       </div>
                       
                     <div class="card-footer">
