@@ -1,11 +1,24 @@
 
-@extends('layouts.front')
+@extends('layouts.front') 
+@section('slider')
+<div class="page-header-overlay">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <header class="entry-header">
+                    <h1 style="color:#fff">Login</h1>
+                </header><!-- .entry-header -->
+            </div><!-- .col -->
+        </div><!-- .row -->
+    </div><!-- .container -->
+</div><!-- .page-header-overlay -->
+@endsection
 @section('content')
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                <x-application-logo class=" h-20 fill-current text-gray-500" />
             </a>
         </x-slot>
 

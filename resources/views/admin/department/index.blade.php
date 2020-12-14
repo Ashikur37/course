@@ -6,7 +6,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0 text-dark">Course List</h1>
+          <h1 class="m-0 text-dark">Department List</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -36,22 +36,20 @@
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Department</th>
-                        <th>Image</th>
+                        <th>Logo</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                        @foreach($courses as $course)
+                        @foreach($departments as $department)
                             <tr>
-                                <td>{{$course->name}}</td>
-                                <td>{{$course->department->name}}</td>
+                                <td>{{$department->name}}</td>
                                 <td>
-                                  <img style="max-width:100px" src="{{URL::to('images/'.$course->logo)}}">
+                                  <img style="max-width:100px" src="{{URL::to('images/'.$department->image)}}">
                                 </td>
                                 <td>
-                                    <a href="{{route('course.edit',$course->id)}}" class="btn btn-sm btn-info" href="">Edit</a>
-                                    <a   href="{{URL::to('/admin/course/delete/')}}/{{$course->id}}" class="btn btn-sm btn-danger delete-button" href="">Delete</a>
+                                    <a href="{{route('department.edit',$department->id)}}" class="btn btn-sm btn-info" href="">Edit</a>
+                                    <a   href="{{URL::to('/admin/department/delete/')}}/{{$department->id}}" class="btn btn-sm btn-danger delete-button" href="">Delete</a>
                                 </td>
                             </tr>
                         @endforeach

@@ -6,7 +6,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0 text-dark">Create Course</h1>
+          <h1 class="m-0 text-dark">Create Department</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -31,34 +31,19 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <form role="form" method="post" action="{{route('course.store')}}" enctype="multipart/form-data">
+                <form role="form" method="post" action="{{route('department.store')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                       <div class="form-group">
-                        <label for="exampleInputEmail1">Course Name</label>
+                        <label for="exampleInputEmail1">Department Name</label>
                         <input required name="name" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputPassword1">Department</label>
-                            <select required name="department_id" class="form-control" >
-                                @foreach($departments as $department)
-                                  <option value="{{$department->id}}">{{ $department->name}}</option>
-                                @endforeach
-                            </select>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputPassword1">Teacher</label>
-                            <select required name="teacher_id" class="form-control" >
-                                @foreach($teachers as $teacher)
-                                  <option value="{{$teacher->id}}">{{ $teacher->user->name}}</option>
-                                @endforeach
-                            </select>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword1">Logo</label>
                           <input type="file" name="image"  class="form-control-file"/>
                       </div>
-                      
+
+    
                     <div class="card-footer">
                       <button type="submit" class="btn btn-primary">Submit</button>
                     </div>

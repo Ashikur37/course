@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Teacher;
 
 use App\Models\Course;
 use App\Models\Teacher;
@@ -9,17 +9,18 @@ use App\Models\Department;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class CourseController extends Controller
+class ExamController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Course $course)
     {
-        $courses=Course::all();
-        return view('admin.course.index',compact('courses'));
+        
+        
+        return view('teacher.exam.index',compact('course'));
     }
 
     /**

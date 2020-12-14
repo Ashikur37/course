@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.teacher')
 @section('content')
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -6,7 +6,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0 text-dark">Course List</h1>
+          <h1 class="m-0 text-dark">My Courses</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -50,8 +50,8 @@
                                   <img style="max-width:100px" src="{{URL::to('images/'.$course->logo)}}">
                                 </td>
                                 <td>
-                                    <a href="{{route('course.edit',$course->id)}}" class="btn btn-sm btn-info" href="">Edit</a>
-                                    <a   href="{{URL::to('/admin/course/delete/')}}/{{$course->id}}" class="btn btn-sm btn-danger delete-button" href="">Delete</a>
+                                    <a href="{{URL::to('/teacher/'.$course->id.'/exam')}}" class="btn btn-sm btn-info" href="">Exam</a>
+                                    <a   href="{{URL::to('/teacher/'.$course->id.'/lecture')}}" class="btn btn-sm btn-primary" href="">Lectures</a>
                                 </td>
                             </tr>
                         @endforeach

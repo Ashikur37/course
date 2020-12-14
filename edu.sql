@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 12, 2020 at 04:37 PM
+-- Generation Time: Dec 14, 2020 at 04:06 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -44,15 +44,17 @@ CREATE TABLE `courses` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `name` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `department` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL
+  `department_id` int(11) NOT NULL,
+  `logo` varchar(40) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `teacher_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `courses`
 --
 
-INSERT INTO `courses` (`id`, `created_at`, `updated_at`, `name`, `department`) VALUES
-(2, '2020-12-12 09:06:16', '2020-12-12 09:06:16', 'test', 'CSE');
+INSERT INTO `courses` (`id`, `created_at`, `updated_at`, `name`, `department_id`, `logo`, `teacher_id`) VALUES
+(3, '2020-12-13 11:08:49', '2020-12-14 08:24:05', 'Circuit1', 3, '1607879329.png', 1);
 
 -- --------------------------------------------------------
 
@@ -62,9 +64,19 @@ INSERT INTO `courses` (`id`, `created_at`, `updated_at`, `name`, `department`) V
 
 CREATE TABLE `departments` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(40) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `departments`
+--
+
+INSERT INTO `departments` (`id`, `name`, `image`, `created_at`, `updated_at`) VALUES
+(2, 'CSE', '1607878906.png', '2020-12-13 11:01:46', '2020-12-13 11:01:46'),
+(3, 'EEE', '1607878958.png', '2020-12-13 11:02:38', '2020-12-13 11:02:38');
 
 -- --------------------------------------------------------
 
@@ -129,8 +141,17 @@ CREATE TABLE `password_resets` (
 CREATE TABLE `teachers` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `department_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `teachers`
+--
+
+INSERT INTO `teachers` (`id`, `created_at`, `updated_at`, `department_id`, `user_id`) VALUES
+(1, '2020-12-13 11:26:23', '2020-12-13 11:26:23', 2, 2);
 
 -- --------------------------------------------------------
 
@@ -155,7 +176,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `type`) VALUES
-(1, 'admin', 'admin@gmail.com', NULL, '$2y$10$tkpeGxcchzUdT8PtLZhG1uX5/XHdiT56oLcMq6fZrbNPlX.z/GIRu', NULL, NULL, NULL, 3);
+(1, 'admin', 'admin@gmail.com', NULL, '$2y$10$tkpeGxcchzUdT8PtLZhG1uX5/XHdiT56oLcMq6fZrbNPlX.z/GIRu', NULL, NULL, NULL, 3),
+(2, 'test', 'test@gmail.com', NULL, '$2y$10$.UySU5Ka4peYYtIc/W.jsuY6DJrXlzHQj3d8xrtXolkUChVG79cCe', NULL, '2020-12-13 11:26:23', '2020-12-13 11:26:23', 2);
 
 -- --------------------------------------------------------
 
@@ -243,13 +265,13 @@ ALTER TABLE `chapters`
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `departments`
 --
 ALTER TABLE `departments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -267,13 +289,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `teachers`
 --
 ALTER TABLE `teachers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `videos`

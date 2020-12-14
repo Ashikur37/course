@@ -6,7 +6,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0 text-dark">Create Course</h1>
+          <h1 class="m-0 text-dark">Add Teacher</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -31,12 +31,16 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <form role="form" method="post" action="{{route('course.store')}}" enctype="multipart/form-data">
+                <form role="form" method="post" action="{{route('teacher.store')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                       <div class="form-group">
-                        <label for="exampleInputEmail1">Course Name</label>
+                        <label for="exampleInputEmail1">Full Name</label>
                         <input required name="name" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Email</label>
+                        <input required name="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword1">Department</label>
@@ -47,16 +51,8 @@
                             </select>
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputPassword1">Teacher</label>
-                            <select required name="teacher_id" class="form-control" >
-                                @foreach($teachers as $teacher)
-                                  <option value="{{$teacher->id}}">{{ $teacher->user->name}}</option>
-                                @endforeach
-                            </select>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleInputPassword1">Logo</label>
-                          <input type="file" name="image"  class="form-control-file"/>
+                        <label for="exampleInputPassword1">Password</label>
+                        <input required name="password" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter password">
                       </div>
                       
                     <div class="card-footer">

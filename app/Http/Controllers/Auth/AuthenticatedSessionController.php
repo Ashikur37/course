@@ -34,6 +34,9 @@ class AuthenticatedSessionController extends Controller
         if(auth()->user()->type==3){
             return redirect('/admin/home');
         }
+        else if(auth()->user()->type==2){
+            return redirect('/teacher');
+        }
         return redirect(RouteServiceProvider::HOME);
     }
 

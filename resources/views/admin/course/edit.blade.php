@@ -31,7 +31,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <form role="form" method="post" action="{{route('course.update',$course->id)}}">
+                <form role="form" method="post" action="{{route('course.update',$course->id)}}" enctype="multipart/form-data">
                     @csrf
                     @method('patch')
                     <div class="card-body">
@@ -41,17 +41,26 @@
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword1">Department</label>
-                            <select required name="department" class="form-control" >
-                                <option {{$course->department=="CSE"?"selected":""}}>CSE</option>
-                                <option {{$course->department=="EEE"?"selected":""}}>EEE</option>
-                                <option {{$course->department=="BBA"?"selected":""}}>BBA</option>
-                                <option {{$course->department=="English"?"selected":""}}>English</option>
-                                <option {{$course->department=="Unani"?"selected":""}}>Unani</option>
+                            <select required name="department_id" class="form-control" >
+                              @foreach($departments as $department)
+                              <option {{$course->department_id==$department->id?"selected":""}} value="{{$department->id}}">{{ $department->name}}</option>
+                            @endforeach
 
                             </select>
                       </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Teacher</label>
+                            <select required name="teacher_id" class="form-control" >
+                              @foreach($teachers as $teacher)
+                              <option {{$course->teacher_id==$teacher->id?"selected":""}} value="{{$teacher->id}}">{{ $teacher->user->name}}</option>
+                            @endforeach
 
-    
+                            </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Logo</label>
+                          <input type="file" name="image"  class="form-control-file"/>
+                      </div>
                     <div class="card-footer">
                       <button type="submit" class="btn btn-primary">Submit</button>
                     </div>

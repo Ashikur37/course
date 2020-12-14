@@ -20,12 +20,22 @@ Route::get('/', function () {
 // Admin routes
 Route::group(['prefix' => 'admin',  'middleware' => 'is_admin'],function() {
     Route::get('/home','App\Http\Controllers\Admin\HomeController@index');
-    Route::get('/course/delete/{course}','App\Http\Controllers\Admin\CourseController@destroy');
-
-    //course/delete/
     Route::resource('/course','App\Http\Controllers\Admin\CourseController'); 
-});
+    Route::get('/course/delete/{course}','App\Http\Controllers\Admin\CourseController@destroy');
+    Route::resource('/department','App\Http\Controllers\Admin\DepartmentController'); 
+    Route::get('/department/delete/{department}','App\Http\Controllers\Admin\DepartmentController@destroy');
+    Route::resource('/teacher','App\Http\Controllers\Admin\TeacherController'); 
+    Route::get('/teacher/delete/{teacher}','App\Http\Controllers\Admin\TeacherController@destroy');
 
+});
+// Teacher routes
+Route::group(['prefix' => 'teacher',  'middleware' => 'is_teacher'],function() {
+    Route::get('/','App\Http\Controllers\Teacher\HomeController@index');
+    Route::get('/course','App\Http\Controllers\Teacher\CourseController@index');
+    Route::get('/{course}/exam','App\Http\Controllers\Teacher\ExamController@index');
+
+
+});
 Route::get('/contact','App\Http\Controllers\Front\PageController@contact')->name('contact'); 
 Route::get('/services','App\Http\Controllers\Front\PageController@service')->name('service'); 
 Route::get('/teacher-info','App\Http\Controllers\Front\PageController@teacher')->name('teacher'); 

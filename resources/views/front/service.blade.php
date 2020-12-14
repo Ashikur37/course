@@ -22,70 +22,16 @@
         <center>
         <div class="container">
             <div class="row">
+                @foreach($departments as $department)
                 <div class="col-12 col-md-6 col-lg-3">
-                    <a href="{{URL::to('/academic?department=CSE')}}">
+                    <a href="{{URL::to('/academic?department='.$department->id)}}">
                         <div class="team-member">
-                            <img src="{{URL::to('/images/logo-3.png')}}" alt="">
-                            <h3>CSE</h3>
+                            <img src="{{URL::to('/images/'.$department->image)}}" alt="">
+                            <h3>{{$department->name}}</h3>
                         </div>
                     </a>
                 </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                    <a href="{{URL::to('/academic?department=EEE')}}">
-                        <div class="team-member">
-                            <img src="" alt="">
-                            <h3>EEE</h3>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                    <a href="{{URL::to('/academic?department=Math')}}">
-                        <div class="team-member">
-                            <img src="" alt="">
-                            <h3>Math</h3>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                    <a href="{{URL::to('/academic?department=Economics')}}">
-                        <div class="team-member">
-                            <img src="" alt="">
-                            <h3>Economics</h3>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                    <a href="{{URL::to('/academic?department=CSE')}}">
-                        <div class="team-member">
-                            <img src="" alt="">
-                            <h3>English</h3>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                    <a href="{{URL::to('/academic?department=BBA')}}">
-                        <div class="team-member">
-                            <img src="" alt="">
-                            <h3>BBA</h3>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                    <a href="{{URL::to('/academic?department=EEE')}}">
-                        <div class="team-member">
-                            <img src="" alt="">
-                            <h3>EEE</h3>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                    <a href="{{URL::to('/academic?department=Unani')}}">
-                        <div class="team-member">
-                            <img src="" alt="">
-                            <h3>Unani</h3>
-                        </div>
-                    </a>
-                </div>
+                @endforeach
             </div>
         </div>
         <br>

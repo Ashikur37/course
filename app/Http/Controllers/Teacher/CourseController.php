@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Teacher;
 
 use App\Models\Course;
 use App\Models\Teacher;
@@ -18,8 +18,9 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $courses=Course::all();
-        return view('admin.course.index',compact('courses'));
+
+        $courses=auth()->user()->teacher->courses;
+        return view('teacher.course.index',compact('courses'));
     }
 
     /**

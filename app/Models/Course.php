@@ -9,4 +9,10 @@ class Course extends Model
 {
     use HasFactory;
     protected $guarded=[];
+    public function Department(){
+        return $this->belongsTo(Department::class);
+    }
+    public function Teacher(){
+        return $this->belongsTo(Teacher::class);
+    }
 }
