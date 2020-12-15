@@ -28,6 +28,7 @@
   <link rel="stylesheet" href="{{URL::to('/')}}/admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <link rel="stylesheet" href="{{URL::to('/')}}/admin/dist/css/adminlte.min.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -187,6 +188,7 @@
 <script src="{{URL::to('/')}}/admin/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{URL::to('/')}}/admin/dist/js/demo.js"></script>
+<script src="{{URL::to('/')}}/admin/plugins/summernote/summernote-bs4.min.js"></script>
 <script>
   function checkAll(checked){
       $(".checkb").each(function(){
@@ -203,5 +205,6 @@
     });
   })
     </script>
+@yield('script')
 </body>
 </html>

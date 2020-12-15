@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2020 at 04:06 PM
+-- Generation Time: Dec 15, 2020 at 07:07 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -29,9 +29,19 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `chapters` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `course_id` int(11) NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `chapters`
+--
+
+INSERT INTO `chapters` (`id`, `course_id`, `title`, `description`, `created_at`, `updated_at`) VALUES
+(2, 3, 'circuit', '<p><img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABHNCSVQICAgIfAhkiAAABJZJREFUWEfNmVtoFGcYht9vZmPcDeiqCJEaulFaD1Sy9aIgCFkpii1CVkulpQFXxROKSesBxVyspajUXkS8KCkUFUFBhCSChV7obhAKSjSJQsQDZusp0Vhdj2s1OuWfw+7s7D8z/6wr3blJJrM78+7zf+/3fvuHwI7V3VEQmgApDKIgSAJAgKT/tDtnfydC9vXq7+bzou+TBLATcUoS4iNRKFI7hi5oogwxvIcV9XCOaJH7sNcA8wgtmSTkinpV3OCFUhEo1X26CC0vFJAMSDIACWVGMk3Y/kSB5NOWVvZpIgfPl4AAqxhrjXqvScK2tKKaQRVZfiQJWx8o6vKq4sqPJGHLPb0GTeLKiCRh0x29BvXlLTOShB9u5VxsFWeQZMXOWpBDn4zWjUHdB6NVc3Veeo7euyOCzd65TxKaB3IuNhvFjqQlYcKT/WhfE0JoQoUaSsaRvJbB8qPDSD18Y3GzN3cTmq6batBmmW1IhicH0LPj4zxh5pN05i1qf7yJdEYRiE0+ScKGKwpki4sFSaZ2z8KH40fZCmQXDp17itiR4Vx5ZGNOjCRhQz+nBt1JhuXL6GmZ6SiOXWQUx227kct41wEknyRh3cWciz2QjIQkJGJqoLsetfEBpB7ptWgYzUrSZnoirO1VsjGXrTWjaduTjEzxIRFj0eV+0MYrpilJNO40koTV3YUuFiAZ9Et4tKPSVV3fnZcI70lxalAf7VxIEladtU8Sc6vJGieXOK1fjkLTHDYF2R+Lf7uJjovPih4cCCv/KsxiQ4wAyY7vKtEwg7/U+04/QPPxwcIWw5tybEgSVpwRSBLTIMEhGZtdgeY5PtRVayQ7+x6j9fQwkldtyIlM1LrbCbGEfRZ7IJlntLvdgjHHmRctJAnLTmkudmrOFncH/TIaZlUhMrUSofEyOvrfoPce0PU3IRiQUVctI1pzH+GaAHpvZVSSnZeeFg7BAiQJjX86JIluCBNJlr2J9ZMQ9Iv1QMM+TOjithRSD0c81SSh8Y98FzuQZNmb2FgD1mKKOVL/vMKnu64i/VLJ74sOJAnfnhBIEo1k8vupqP8oUIy27Ht2nhxC/OR9fo1y3E34pkMj6NJSQhMDGPhpxjuJY29mFGtb+vl9kUOSsPS4UJJEpgWR2GQ/WnlRTut68odf6wBhIkn4+li+i21IRqYHkdj87gTZB6G1bINAr2PHps2y+KsjQkmiCtzyiRdQtq+lNeJ9krDkMN/FFpLBqkqk9n6GsX7n7HX7BH1DQLgN2uZA9juOzfCqTjPRA8JJEppYhdjcar3A9RRgOxHmZbIWunENEtL/Eg72vEX6tb5JIJA4hIbf+VlcbMxZNwGsfZVtr5iTy4UkYVGbou7JOMWdJ7HuLStvB4O1OAeShEW/OmexJ3H6BlTBZM7JekGShC/251xcUpJmsS4rpD6XT5KwsFVPklIuc+lIEhb8Uuji/4skKydmMqMmiR4T5v+cBMn12S249ybOZXOAV5MKdRE+3xWF5Gvnuvi9iRUoJ0bydvc8berURDar/4aQfWO16UbgJgJTUEFLEeqT1AXZF0e8IvkfJzUjOgAfUYUAAAAASUVORK5CYII=\" data-filename=\"1606975531.png\" style=\"width: 40px;\"></p><p><br></p><p><b>lorem ipsum</b></p>', '2020-12-15 11:32:54', '2020-12-15 11:32:54');
 
 -- --------------------------------------------------------
 
@@ -117,8 +127,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (4, '2020_12_11_063032_create_departments_table', 1),
 (5, '2020_12_11_063055_create_teachers_table', 1),
 (6, '2020_12_11_063107_create_courses_table', 1),
-(7, '2020_12_11_063149_create_chapters_table', 1),
-(8, '2020_12_11_063208_create_videos_table', 1);
+(8, '2020_12_11_063208_create_videos_table', 1),
+(9, '2020_12_11_063149_create_chapters_table', 2);
 
 -- --------------------------------------------------------
 
@@ -259,7 +269,7 @@ ALTER TABLE `videos`
 -- AUTO_INCREMENT for table `chapters`
 --
 ALTER TABLE `chapters`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `courses`
@@ -283,7 +293,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `teachers`

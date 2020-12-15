@@ -32,15 +32,21 @@ Route::group(['prefix' => 'admin',  'middleware' => 'is_admin'],function() {
 Route::group(['prefix' => 'teacher',  'middleware' => 'is_teacher'],function() {
     Route::get('/','App\Http\Controllers\Teacher\HomeController@index');
     Route::get('/course','App\Http\Controllers\Teacher\CourseController@index');
-    Route::get('/{course}/exam','App\Http\Controllers\Teacher\ExamController@index');
+    Route::get('/{course}/chapter','App\Http\Controllers\Teacher\ChapterController@index');
+    Route::get('/{course}/chapter/create','App\Http\Controllers\Teacher\ChapterController@create');
+    Route::post('/{course}/chapter/create','App\Http\Controllers\Teacher\ChapterController@store');
+    Route::get('/chapter/delete/{chapter}','App\Http\Controllers\Teacher\ChapterController@destroy');
 
+
+    //course/3/chapter/create
 
 });
 Route::get('/contact','App\Http\Controllers\Front\PageController@contact')->name('contact'); 
 Route::get('/services','App\Http\Controllers\Front\PageController@service')->name('service'); 
 Route::get('/teacher-info','App\Http\Controllers\Front\PageController@teacher')->name('teacher'); 
 Route::get('/academic','App\Http\Controllers\Front\PageController@academic')->name('academic'); 
-
+Route::get('/course/{name}','App\Http\Controllers\Front\PageController@course');
+Route::get('/chapter/{course}/{chapter}','App\Http\Controllers\Front\PageController@chapter');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

@@ -6,7 +6,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0 text-dark">My Courses</h1>
+          <h1 class="m-0 text-dark">{{$course->name}}</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -18,7 +18,7 @@
     </div><!-- /.container-fluid -->
   </div>
   <!-- /.content-header -->
-
+ 
   <!-- Main content -->
   <section class="content">
     <div class="container-fluid">
@@ -28,29 +28,28 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  
+                    <a class="btn btn-primary" href="{{URL::to('/teacher/'.$course->id.'/chapter/create')}}">
+                        Add Chapter
+                    </a>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
             <table class="table table-bordered table-hover" id="example1">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Department</th>
-                        <th>Image</th>
+                        <th>Title</th>
+
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                        @foreach($courses as $course)
+                        @foreach($course->chapters as $chapter)
                             <tr>
-                                <td>{{$course->name}}</td>
-                                <td>{{$course->department->name}}</td>
+                                <td>{{$chapter->title}}</td>
+
                                 <td>
-                                  <img style="max-width:100px" src="{{URL::to('images/'.$course->logo)}}">
-                                </td>
-                                <td>
-                                    <a href="{{URL::to('/teacher/'.$course->id.'/chapter')}}" class="btn btn-sm btn-info" href="">Chapters</a>
+                                    <a href="{{URL::to('/teacher/'.$chapter->id.'/topic')}}" class="btn btn-sm btn-info" href="">Topics</a>
+                                    <a   href="{{URL::to('/teacher/chapter/delete/')}}/{{$chapter->id}}" class="btn btn-sm btn-danger delete-button" href="">Delete</a>
                                     
                                 </td>
                             </tr>

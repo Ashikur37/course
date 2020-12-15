@@ -8,24 +8,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{URL::to('/')}}/css/bootstrap.min.css">
     
 
 
     <!-- FontAwesome CSS -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{URL::to('/')}}/css/font-awesome.min.css">
 
     <!-- ElegantFonts CSS -->
-    <link rel="stylesheet" href="css/elegant-fonts.css">
+    <link rel="stylesheet" href="{{URL::to('/')}}/css/elegant-fonts.css">
 
     <!-- themify-icons CSS -->
-    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="{{URL::to('/')}}/css/themify-icons.css">
 
     <!-- Swiper CSS -->
-    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="{{URL::to('/')}}/css/swiper.min.css">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{URL::to('/')}}/style.css">
 </head>
 <body>
     <div class="hero-content">
@@ -200,11 +200,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         </div><!-- .footer-bar -->
     </footer><!-- .site-footer -->
 
-<script type='text/javascript' src='js/jquery.js'></script>
-<script type='text/javascript' src='js/swiper.min.js'></script>
-<script type='text/javascript' src='js/masonry.pkgd.min.js'></script>
-<script type='text/javascript' src='js/jquery.collapsible.min.js'></script>
-<script type='text/javascript' src='js/custom.js'></script>
+<script type='text/javascript' src='{{URL::to('/')}}/js/jquery.js'></script>
+<script type='text/javascript' src='{{URL::to('/')}}/js/swiper.min.js'></script>
+<script type='text/javascript' src='{{URL::to('/')}}/js/masonry.pkgd.min.js'></script>
+<script type='text/javascript' src='{{URL::to('/')}}/js/jquery.collapsible.min.js'></script>
+<script type='text/javascript' src='{{URL::to('/')}}/js/custom.js'></script>
 
 </body>
 </html>
