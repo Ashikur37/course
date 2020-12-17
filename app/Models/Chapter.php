@@ -12,4 +12,7 @@ class Chapter extends Model
     public function Course(){
         return $this->belongsTo(Course::class);
     }
+    public function Topics(){
+        return $this->hasMany(Topic::class);
+    }
 }
