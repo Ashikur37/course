@@ -40,6 +40,10 @@ Route::group(['prefix' => 'teacher',  'middleware' => 'is_teacher'],function() {
     Route::get('/{chapter}/topic/create','App\Http\Controllers\Teacher\TopicController@create');
     Route::post('/{chapter}/topic/create','App\Http\Controllers\Teacher\TopicController@store');
     Route::get('/topic/delete/{topic}','App\Http\Controllers\Teacher\TopicController@destroy'); 
+    Route::get('/{topic}/exercise','App\Http\Controllers\Teacher\ExerciseController@index');
+    Route::get('/{topic}/exercise/create','App\Http\Controllers\Teacher\ExerciseController@create');
+    Route::post('/{topic}/exercise/create','App\Http\Controllers\Teacher\ExerciseController@store');
+    Route::get('/exercise/delete/{exercise}','App\Http\Controllers\Teacher\ExerciseController@destroy'); 
 
     //course/3/chapter/create
 

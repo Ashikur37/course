@@ -6,7 +6,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0 text-dark">{{$chapter->title}}</h1>
+          <h1 class="m-0 text-dark">{{$topic->title}}</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -28,8 +28,8 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                    <a class="btn btn-primary" href="{{URL::to('/teacher/'.$chapter->id.'/topic/create')}}">
-                        Add Topic
+                    <a class="btn btn-primary" href="{{URL::to('/teacher/'.$topic->id.'/exercise/create')}}">
+                        Add Exercise
                     </a>
                 </div>
                 <!-- /.card-header -->
@@ -37,23 +37,31 @@
             <table class="table table-bordered table-hover" id="example1">
                 <thead>
                     <tr>
-                        <th>Title</th>
-                        <th>Video</th>
+                        <th>Question</th>
+                        <th>Options</th>
+                        <th>Correct Answer</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                        @foreach($chapter->topics as $topic)
+                        @foreach($topic->exercises as $exercise)
                             <tr>
-                                <td>{{$topic->title}}</td>
-                                <td><video width="320" height="140" controls>
-                                    <source src="{{URL::to('/videos/'.$topic->video)}}" type="video/mp4">
-                                  Your browser does not support the video tag.
-                                  </video>
+                                <td>{{$exercise->question}}</td>
+                                <td>
+                                  <ul class="list-group">
+                                    <li class="list-group-item">{{$exercise->option1}}</li>
+                                    <li class="list-group-item">{{$exercise->option2}}</li>
+                                    <li class="list-group-item">{{$exercise->option3}}</li>
+                                    <li class="list-group-item">{{$exercise->option4}}</li>
+
+                                  </ul>
                                 </td>
                                 <td>
-                                  <a href="{{URL::to('/teacher/'.$topic->id.'/exercise')}}" class="btn btn-sm btn-info" href="">Exercises</a>
-                                    <a   href="{{URL::to('/teacher/topic/delete/')}}/{{$topic->id}}" class="btn btn-sm btn-danger delete-button" href="">Delete</a>
+                                  {{$exercise[$exercise->correct_answer]}}
+                                </td>
+                                <td>
+                                  
+                                    <a   href="{{URL::to('/teacher/exercise/delete/')}}/{{$topic->id}}" class="btn btn-sm btn-danger delete-button" href="">Delete</a>
                                     
                                 </td>
                             </tr>
