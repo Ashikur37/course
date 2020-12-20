@@ -21,6 +21,8 @@ Route::get('/', function () {
 Route::group(['prefix' => 'admin',  'middleware' => 'is_admin'],function() {
     Route::get('/home','App\Http\Controllers\Admin\HomeController@index');
     Route::resource('/course','App\Http\Controllers\Admin\CourseController'); 
+    Route::resource('/poet','App\Http\Controllers\Admin\PoetController'); 
+    Route::get('/poet/delete/{poet}','App\Http\Controllers\Admin\PoetController@destroy');
     Route::get('/course/delete/{course}','App\Http\Controllers\Admin\CourseController@destroy');
     Route::resource('/department','App\Http\Controllers\Admin\DepartmentController'); 
     Route::get('/department/delete/{department}','App\Http\Controllers\Admin\DepartmentController@destroy');
@@ -51,9 +53,15 @@ Route::group(['prefix' => 'teacher',  'middleware' => 'is_teacher'],function() {
 Route::get('/contact','App\Http\Controllers\Front\PageController@contact')->name('contact'); 
 Route::get('/services','App\Http\Controllers\Front\PageController@service')->name('service'); 
 Route::get('/teacher-info','App\Http\Controllers\Front\PageController@teacher')->name('teacher'); 
-Route::get('/academic','App\Http\Controllers\Front\PageController@academic')->name('academic'); 
+Route::get('/academic','App\Http\Controllers\Front\PageController@academic')->name('academic');
+Route::get('/literature','App\Http\Controllers\Front\PageController@literature')->name('literature'); 
 Route::get('/course/{name}','App\Http\Controllers\Front\PageController@course');
 Route::get('/chapter/{course}/{chapter}','App\Http\Controllers\Front\PageController@chapter');
+Route::get('/poet/en/{poet}','App\Http\Controllers\Front\PageController@poetEn');
+Route::get('/poet/bn/{poet}','App\Http\Controllers\Front\PageController@poetBn');
+
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

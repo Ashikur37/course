@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Chapter;
 use App\Models\Course;
 use App\Models\Department;
+use App\Models\Poet;
 
 class PageController extends Controller
 {
@@ -32,4 +33,17 @@ class PageController extends Controller
        $chapter=Chapter::where('title',$chapter)->first();
        return view('front.chapter',compact('chapter'));
     }
+    public function literature(){
+        $poets=Poet::orderBy('en_name')->get();
+        return view('front.literature',compact('poets'));
+    }
+    public function poetEn(Poet $poet){
+        
+        return view('front.poet-en',compact('poet'));
+    }
+    public function poetBn(Poet $poet){
+        
+        return view('front.poet-bn',compact('poet'));
+    }
+    
 }

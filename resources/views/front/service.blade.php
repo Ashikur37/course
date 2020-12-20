@@ -49,7 +49,7 @@
                         </a>
                     </div>
                     <div class="col-12 col-md-6 col-lg-3">
-                        <a href="{{URL::to('/academic?department=EEE')}}">
+                        <a href="{{URL::to('/literature')}}">
                             <div class="team-member">
                                 <img src="" alt="">
                                 <h3>Literature</h3>
