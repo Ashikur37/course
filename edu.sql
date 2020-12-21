@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 15, 2020 at 07:07 PM
+-- Generation Time: Dec 21, 2020 at 06:10 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -69,6 +69,40 @@ INSERT INTO `courses` (`id`, `created_at`, `updated_at`, `name`, `department_id`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `course_teachers`
+--
+
+CREATE TABLE `course_teachers` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `current_affairs`
+--
+
+CREATE TABLE `current_affairs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `month` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `year` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `file` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `current_affairs`
+--
+
+INSERT INTO `current_affairs` (`id`, `month`, `year`, `file`, `created_at`, `updated_at`) VALUES
+(1, 'january', '2020', '1608569411.doc', '2020-12-21 10:50:11', '2020-12-21 10:50:11');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `departments`
 --
 
@@ -87,6 +121,32 @@ CREATE TABLE `departments` (
 INSERT INTO `departments` (`id`, `name`, `image`, `created_at`, `updated_at`) VALUES
 (2, 'CSE', '1607878906.png', '2020-12-13 11:01:46', '2020-12-13 11:01:46'),
 (3, 'EEE', '1607878958.png', '2020-12-13 11:02:38', '2020-12-13 11:02:38');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `exercises`
+--
+
+CREATE TABLE `exercises` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `question` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `option1` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `option2` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `option3` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `option4` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `correct_answer` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `topic_id` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `exercises`
+--
+
+INSERT INTO `exercises` (`id`, `question`, `option1`, `option2`, `option3`, `option4`, `correct_answer`, `topic_id`, `created_at`, `updated_at`) VALUES
+(1, '2+2=?', '1', '4', '2', '3', 'option2', 2, '2020-12-18 10:35:02', '2020-12-18 10:35:02');
 
 -- --------------------------------------------------------
 
@@ -128,7 +188,13 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (5, '2020_12_11_063055_create_teachers_table', 1),
 (6, '2020_12_11_063107_create_courses_table', 1),
 (8, '2020_12_11_063208_create_videos_table', 1),
-(9, '2020_12_11_063149_create_chapters_table', 2);
+(9, '2020_12_11_063149_create_chapters_table', 2),
+(10, '2020_12_13_061638_create_course_teachers_table', 3),
+(11, '2020_12_13_163448_create_students_table', 3),
+(12, '2020_12_15_150802_create_topics_table', 3),
+(13, '2020_12_18_160903_create_exercises_table', 4),
+(14, '2020_12_19_143956_create_poets_table', 5),
+(15, '2020_12_21_163851_create_current_affairs_table', 6);
 
 -- --------------------------------------------------------
 
@@ -140,6 +206,42 @@ CREATE TABLE `password_resets` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `poets`
+--
+
+CREATE TABLE `poets` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bn_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `en_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bn_details` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `en_details` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `poets`
+--
+
+INSERT INTO `poets` (`id`, `image`, `bn_name`, `en_name`, `bn_details`, `en_details`, `created_at`, `updated_at`) VALUES
+(1, '1608390479.png', 'কাজী', 'kaji', '<p>কবি</p>', '<p>poet</p>', '2020-12-19 09:08:00', '2020-12-19 09:08:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `students`
+--
+
+CREATE TABLE `students` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -166,6 +268,28 @@ INSERT INTO `teachers` (`id`, `created_at`, `updated_at`, `department_id`, `user
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `topics`
+--
+
+CREATE TABLE `topics` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `chapter_id` int(11) NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `video` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `topics`
+--
+
+INSERT INTO `topics` (`id`, `chapter_id`, `title`, `video`, `created_at`, `updated_at`) VALUES
+(2, 2, 'test', '1608129401.mp4', '2020-12-16 08:36:41', '2020-12-16 08:36:41');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -178,16 +302,20 @@ CREATE TABLE `users` (
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `type` int(11) NOT NULL
+  `type` int(11) NOT NULL,
+  `department_id` int(11) DEFAULT NULL,
+  `batch` int(11) DEFAULT NULL,
+  `roll` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `type`) VALUES
-(1, 'admin', 'admin@gmail.com', NULL, '$2y$10$tkpeGxcchzUdT8PtLZhG1uX5/XHdiT56oLcMq6fZrbNPlX.z/GIRu', NULL, NULL, NULL, 3),
-(2, 'test', 'test@gmail.com', NULL, '$2y$10$.UySU5Ka4peYYtIc/W.jsuY6DJrXlzHQj3d8xrtXolkUChVG79cCe', NULL, '2020-12-13 11:26:23', '2020-12-13 11:26:23', 2);
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `type`, `department_id`, `batch`, `roll`) VALUES
+(1, 'admin', 'admin@gmail.com', NULL, '$2y$10$tkpeGxcchzUdT8PtLZhG1uX5/XHdiT56oLcMq6fZrbNPlX.z/GIRu', NULL, NULL, NULL, 3, NULL, NULL, NULL),
+(2, 'test', 'test@gmail.com', NULL, '$2y$10$.UySU5Ka4peYYtIc/W.jsuY6DJrXlzHQj3d8xrtXolkUChVG79cCe', NULL, '2020-12-13 11:26:23', '2020-12-13 11:26:23', 2, NULL, NULL, NULL),
+(4, 'student', 'st@gmail.com', NULL, '$2y$10$YBqmLdgItCjA40SCwhPMTOenI3MzlCR7fTIw.THbEnmRW3OB5lmPa', NULL, '2020-12-21 09:47:41', '2020-12-21 10:16:48', 1, 2, 9, 12345678);
 
 -- --------------------------------------------------------
 
@@ -218,9 +346,27 @@ ALTER TABLE `courses`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `course_teachers`
+--
+ALTER TABLE `course_teachers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `current_affairs`
+--
+ALTER TABLE `current_affairs`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `departments`
 --
 ALTER TABLE `departments`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `exercises`
+--
+ALTER TABLE `exercises`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -243,9 +389,27 @@ ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
+-- Indexes for table `poets`
+--
+ALTER TABLE `poets`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `students`
+--
+ALTER TABLE `students`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `teachers`
 --
 ALTER TABLE `teachers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `topics`
+--
+ALTER TABLE `topics`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -278,10 +442,28 @@ ALTER TABLE `courses`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `course_teachers`
+--
+ALTER TABLE `course_teachers`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `current_affairs`
+--
+ALTER TABLE `current_affairs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `departments`
 --
 ALTER TABLE `departments`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `exercises`
+--
+ALTER TABLE `exercises`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -293,7 +475,19 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `poets`
+--
+ALTER TABLE `poets`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `students`
+--
+ALTER TABLE `students`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `teachers`
@@ -302,10 +496,16 @@ ALTER TABLE `teachers`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `topics`
+--
+ALTER TABLE `topics`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `videos`
