@@ -37,6 +37,13 @@ class AuthenticatedSessionController extends Controller
         else if(auth()->user()->type==2){
             return redirect('/teacher');
         }
+        else if(auth()->user()->type==1){
+            return redirect('/');
+        }
+        else{
+            Auth::logout();
+            return redirect('/login')->with('error','Your account is under approval');
+        }
         return redirect(RouteServiceProvider::HOME);
     }
 

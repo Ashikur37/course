@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-12">
                 <header class="entry-header">
-                    <h1 style="color:#fff">Services</h1>
+                    <h1 style="color:#fff">Job Preparation</h1>
                 </header><!-- .entry-header -->
             </div><!-- .col -->
         </div><!-- .row -->
@@ -18,56 +18,47 @@
     <div class="container-fluid">
         <br>
         <center>
-        <h1>Academic</h1>
-        <center>
+            <h1>Job Preparation</h1>
+        </center>
         <div class="container">
-            <div class="row">
-                @foreach($departments as $department)
-                <div class="col-12 col-md-6 col-lg-3">
-                    <a href="{{URL::to('/academic?department='.$department->id)}}">
-                        <div class="team-member">
-                            <img src="{{URL::to('/images/'.$department->image)}}" alt="">
-                            <h3>{{$department->name}}</h3>
-                        </div>
-                    </a>
-                </div>
-                @endforeach
-            </div>
-        </div>
-        <br>
-        <center>
-            <h1>Non Academic</h1>
-            <center>
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-md-6 col-lg-3">
-                        <a href="{{URL::to('/literature')}}">
+                        <a href="{{URL::to('/job/bangla')}}">
                             <div class="team-member">
                                 <img src="" alt="">
-                                <h3>Literature</h3>
+                                <h3>Bangla</h3>
                             </div>
                         </a>
                     </div>
                     <div class="col-12 col-md-6 col-lg-3">
-                        <a href="{{URL::to('/job')}}">
+                        <a href="{{URL::to('/job/english')}}">
                             <div class="team-member">
                                 <img src="" alt="">
-                                <h3>Job Preparation</h3>
+                                <h3>English</h3>
                             </div>
                         </a>
                     </div>
                     <div class="col-12 col-md-6 col-lg-3">
-                        <a href="{{URL::to('/academic?department=Economics')}}">
+                        <a href="{{URL::to('/job/math')}}">
                             <div class="team-member">
                                 <img src="" alt="">
-                                <h3>Motivation</h3>
+                                <h3>Math</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <a href="{{URL::to('/job/gk')}}">
+                            <div class="team-member">
+                                <img src="" alt="">
+                                <h3>General Knowledge</h3>
                             </div>
                         </a>
                     </div>
 
                 </div>
             </div>
-            <br>
+        </div>
     </div>
 </div>
 @endsection

@@ -1,4 +1,20 @@
-<x-guest-layout>
+
+@extends('layouts.front') 
+@section('slider')
+<div class="page-header-overlay">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <header class="entry-header">
+                    <h1 style="color:#fff">Register</h1>
+                </header><!-- .entry-header -->
+            </div><!-- .col -->
+        </div><!-- .row -->
+    </div><!-- .container -->
+</div><!-- .page-header-overlay -->
+@endsection
+@section('content')
+<x-guest-layout> 
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
@@ -25,7 +41,30 @@
 
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
             </div>
+            
+            <div class="mt-4">
+                <x-label for="department" :value="__('Department')" />
+                <select required class="form-control" id="department" name="department_id">
+                    <option value="">Select Department</option>
+                    @foreach($departments as $department)
+                    <option value="{{$department->id}}">{{ $department->name}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="mt-4">
+                <x-label for="department" :value="__('Batch no')" />
+                <select required class="form-control" id="department" name="batch">
+                    <option value="">Select Batch</option>
+                    @for($i=1;$i<12;$i++)
+                        <option value="{{$i}}">{{$i}}</option>
+                    @endfor
+                </select>
+            </div>
+            <div class="mt-4">
+                <x-label for="roll" :value="__('Roll No')" />
 
+                <x-input id="roll" class="block mt-1 w-full" type="text" name="roll" :value="old('roll')" required />
+            </div>
             <!-- Password -->
             <div class="mt-4">
                 <x-label for="password" :value="__('Password')" />
@@ -57,3 +96,4 @@
         </form>
     </x-auth-card>
 </x-guest-layout>
+@endsection

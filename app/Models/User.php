@@ -20,7 +20,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'type'
+        'type',
+        'department_id',
+        'batch',
+        'roll'
     ];
 
     /**
@@ -43,5 +46,8 @@ class User extends Authenticatable
     ];
     public function Teacher(){
         return $this->hasOne(Teacher::class);
+    }
+    public function Department(){
+        return $this->belongsTo(Department::class);
     }
 }

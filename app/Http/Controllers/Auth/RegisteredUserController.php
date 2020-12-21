@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Department;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -19,7 +20,8 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
-        return view('auth.register');
+        $departments=Department::all();
+        return view('auth.register',compact('departments'));
     }
 
     /**
@@ -38,12 +40,16 @@ class RegisteredUserController extends Controller
             'password' => 'required|string|confirmed|min:8',
         ]);
 
-        Auth::login($user = User::create([
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-        ]));
-
+            "department_id"=>$request->department_id,
+            "batch"=>$request->batch,
+            "roll"=>$request->roll,
+            "type"=>0
+        ]);
+        return redirect('/login')->with('success','Account created successfully.<br>Your account will be approve soon after verification');
         event(new Registered($user));
 
         return redirect(RouteServiceProvider::HOME);

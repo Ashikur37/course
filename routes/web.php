@@ -28,7 +28,12 @@ Route::group(['prefix' => 'admin',  'middleware' => 'is_admin'],function() {
     Route::get('/department/delete/{department}','App\Http\Controllers\Admin\DepartmentController@destroy');
     Route::resource('/teacher','App\Http\Controllers\Admin\TeacherController'); 
     Route::get('/teacher/delete/{teacher}','App\Http\Controllers\Admin\TeacherController@destroy');
+    Route::resource('/student','App\Http\Controllers\Admin\StudentController');
+    Route::get('/student/pending','App\Http\Controllers\Admin\StudentController@pending')->name('student.pending'); 
+    Route::get('/student/delete/{student}','App\Http\Controllers\Admin\StudentController@destroy');
 
+    Route::resource('/current-affairs','App\Http\Controllers\Admin\CurrentAffairsController');
+    Route::get('/current-affairs/delete/{currentAffair}','App\Http\Controllers\Admin\CurrentAffairsController@destroy');
 });
 // Teacher routes
 Route::group(['prefix' => 'teacher',  'middleware' => 'is_teacher'],function() {
@@ -59,8 +64,13 @@ Route::get('/course/{name}','App\Http\Controllers\Front\PageController@course');
 Route::get('/chapter/{course}/{chapter}','App\Http\Controllers\Front\PageController@chapter');
 Route::get('/poet/en/{poet}','App\Http\Controllers\Front\PageController@poetEn');
 Route::get('/poet/bn/{poet}','App\Http\Controllers\Front\PageController@poetBn');
-
-
+Route::get('/job','App\Http\Controllers\Front\PageController@job');
+Route::get('/job/bangla','App\Http\Controllers\Front\PageController@jobBangla');
+Route::get('/job/english','App\Http\Controllers\Front\PageController@jobEnglish');
+Route::get('/job/math','App\Http\Controllers\Front\PageController@jobMath');
+Route::get('/job/gk','App\Http\Controllers\Front\PageController@jobGk');
+Route::get('job/current-affairs','App\Http\Controllers\Front\PageController@currentAffairs');
+//job/current-affairs
 
 Route::get('/dashboard', function () {
     return view('dashboard');

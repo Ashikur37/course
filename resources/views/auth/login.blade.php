@@ -27,7 +27,18 @@
 
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
+       <center>
+            @if(Session::has('error'))
+            <span class="text text-danger">
+                {{Session::get('error')}}
+            </span>
+            @endif
+            @if(Session::has('success'))
+            <span class="text text-success">
+            {!!Session::get('success')!!}
+            </span>
+            @endif
+       </center>
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
@@ -62,7 +73,7 @@
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif
-
+               
                 <x-button class="ml-3">
                     {{ __('Login') }}
                 </x-button>
