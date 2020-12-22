@@ -48,6 +48,9 @@
                                     
                                     <div class="course-author"><a href="javascript::void(0)">{{$topic->chapter->course->teacher->user->name}} </a></div>
                                     <div class="course-date">{{$topic->created_at->diffForHumans()}}</div>
+                                    <div style="float:right;margin-left:auto">
+                                        <a href="{{URL::to('/exercise/'.$topic->id)}}">Exercise: {{$topic->exercises->count()}} question</a> 
+                                    </div>
                                 </div><!-- .course-date -->
                             </header><!-- .entry-header -->
                         </div><!-- .course-content-wrap -->

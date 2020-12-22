@@ -7,7 +7,10 @@ use App\Models\Chapter;
 use App\Models\Course;
 use App\Models\CurrentAffair;
 use App\Models\Department;
+use App\Models\Exercise;
 use App\Models\Poet;
+use App\Models\Topic;
+use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
@@ -65,6 +68,20 @@ class PageController extends Controller
         $affairs =CurrentAffair::all();
         return view('front.job.current',compact('affairs'));
 
+    }
+    public function exercise(Topic $topic){
+        
+        return view('front.exercise',compact('topic'));
+    }
+    public function exerciseSubmit(Topic $topic,Request $request){
+        $corrects=[];
+        foreach($request->question as $ex =>$ans ){
+            $exercise=Exercise::find($ex);
+            if($exercise->correct_answer==$ans){
+                array_push($corrects,$ex);
+            }
+        }
+        return view('front.exercise-submit',compact('topic','corrects'));
     }
     
 }

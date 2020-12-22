@@ -70,6 +70,8 @@ Route::get('/job/english','App\Http\Controllers\Front\PageController@jobEnglish'
 Route::get('/job/math','App\Http\Controllers\Front\PageController@jobMath');
 Route::get('/job/gk','App\Http\Controllers\Front\PageController@jobGk');
 Route::get('job/current-affairs','App\Http\Controllers\Front\PageController@currentAffairs');
+Route::get('exercise/{topic}','App\Http\Controllers\Front\PageController@exercise');
+Route::post('exercise/{topic}','App\Http\Controllers\Front\PageController@exerciseSubmit');
 //job/current-affairs
 
 Route::get('/dashboard', function () {
