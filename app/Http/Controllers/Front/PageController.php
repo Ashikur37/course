@@ -22,7 +22,12 @@ class PageController extends Controller
         return view('front.service',compact('departments'));
     }
     public function teacher(){
-        return view('front.teacher');
+        if(request()->department){
+            $department=Department::find(request()->department);
+            return view('front.teacher-department',compact('department'));
+        }
+        $departments=Department::all();
+        return view('front.teacher',compact('departments'));
     }
     public function academic(){
         $department=Department::find(request()->department);

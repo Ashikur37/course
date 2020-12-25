@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-12">
                 <header class="entry-header">
-                    <h1 style="color:#fff">Teacher info</h1>
+                    <h1 style="color:#fff">{{$department->name}}</h1>
                 </header><!-- .entry-header -->
             </div><!-- .col -->
         </div><!-- .row -->
@@ -18,19 +18,24 @@
     <div class="container-fluid">
         <br>
         <center>
-        <h1>Teacher Info</h1>
+        <h1>Teacher List</h1>
         <center>
         <div class="container">
             <div class="row">
-                @foreach($departments as $department)
+                @foreach($department->teachers as $teacher)
                 <div class="col-12 col-md-6 col-lg-3">
-                    <a href="{{URL::to('/teacher-info?department='.$department->id)}}">
+                    
                         <div class="team-member">
-                            <img src="{{URL::to('/images/'.$department->image)}}" alt="">
-                            <h3>{{$department->name}}</h3>
-                            <h4>{{$department->teachers->count()}} Teacher</h4>
+                            <h3>{{$teacher->user->name}}</h3>
+                            <h4>{{$teacher->user->email}}</h4>
+                                <h3>Courses</h3>
+                                @foreach($teacher->courses as $course)
+                                <a href="{{URL::to('/course/'.$course->name)}}">
+                                    <h4>{{$course->name}}</h4>
+                                </a>
+                                @endforeach
                         </div>
-                    </a>
+                    
                 </div>
                 @endforeach
             </div>
