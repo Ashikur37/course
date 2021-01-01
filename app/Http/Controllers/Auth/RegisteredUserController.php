@@ -47,7 +47,9 @@ class RegisteredUserController extends Controller
             "department_id"=>$request->department_id,
             "batch"=>$request->batch,
             "roll"=>$request->roll,
-            "type"=>0
+            "type"=>0,
+            "father_name"=>$request->father_name,
+            "mother_name"=>$request->mother_name,
         ]);
         return redirect('/login')->with('success','Account created successfully.<br>Your account will be approve soon after verification');
         event(new Registered($user));

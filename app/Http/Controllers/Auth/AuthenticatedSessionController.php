@@ -38,7 +38,7 @@ class AuthenticatedSessionController extends Controller
             return redirect('/teacher');
         }
         else if(auth()->user()->type==1){
-            return redirect('/');
+            return redirect('/student');
         }
         else{
             Auth::logout();

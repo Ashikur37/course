@@ -51,6 +51,7 @@
                                 </td>
                                 <td>
                                     <a href="{{URL::to('/teacher/'.$course->id.'/chapter')}}" class="btn btn-sm btn-info" href="">Chapters</a>
+                                    <a href="{{URL::to('/teacher/'.$course->id.'/exam')}}" class="btn btn-sm btn-primary" href="">Exams</a>
                                     
                                 </td>
                             </tr>

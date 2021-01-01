@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 |
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| contains the "web" middleware group. Now create something great! 
 |
 */
 
@@ -52,6 +52,10 @@ Route::group(['prefix' => 'teacher',  'middleware' => 'is_teacher'],function() {
     Route::post('/{topic}/exercise/create','App\Http\Controllers\Teacher\ExerciseController@store');
     Route::get('/exercise/delete/{exercise}','App\Http\Controllers\Teacher\ExerciseController@destroy'); 
 
+    Route::get('/{course}/exam','App\Http\Controllers\Teacher\ExamController@index');
+    Route::get('/{course}/exam/create','App\Http\Controllers\Teacher\ExamController@create');
+    Route::post('/{course}/exam/create','App\Http\Controllers\Teacher\ExamController@store');
+    Route::get('/exam/delete/{exam}','App\Http\Controllers\Teacher\ExamController@destroy'); 
     //course/3/chapter/create
 
 });
@@ -73,6 +77,14 @@ Route::get('job/current-affairs','App\Http\Controllers\Front\PageController@curr
 Route::get('exercise/{topic}','App\Http\Controllers\Front\PageController@exercise');
 Route::post('exercise/{topic}','App\Http\Controllers\Front\PageController@exerciseSubmit');
 //job/current-affairs
+
+Route::group(['prefix' => 'student'],function() {
+    Route::get('/','App\Http\Controllers\Student\HomeController@index'); 
+    Route::get('/exam','App\Http\Controllers\Student\HomeController@exam');
+    Route::get('/result','App\Http\Controllers\Student\HomeController@result');
+    Route::get('/{course}/exam','App\Http\Controllers\Student\HomeController@courseExam'); 
+    Route::get('/{course}/exam/{n}/{ans}','App\Http\Controllers\Student\HomeController@courseQuestion');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');

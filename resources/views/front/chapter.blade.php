@@ -34,7 +34,7 @@
                 <div class="col-12 col-md-6 px-25">
                     <div class="course-content">
                         <figure class="course-thumbnail">
-                            <video width="100%" height="auto" controls>
+                            <video width="100%" height="auto" controls onended="endVideo()">
                                 <source src="{{URL::to('/videos/'.$topic->video)}}" type="video/mp4">
                               Your browser does not support the video tag.
                               </video>
@@ -48,9 +48,7 @@
                                     
                                     <div class="course-author"><a href="javascript::void(0)">{{$topic->chapter->course->teacher->user->name}} </a></div>
                                     <div class="course-date">{{$topic->created_at->diffForHumans()}}</div>
-                                    <div style="float:right;margin-left:auto">
-                                        <a href="{{URL::to('/exercise/'.$topic->id)}}">Exercise: {{$topic->exercises->count()}} question</a> 
-                                    </div>
+                                    
                                 </div><!-- .course-date -->
                             </header><!-- .entry-header -->
                         </div><!-- .course-content-wrap -->
@@ -66,4 +64,36 @@
     <!-- .col -->
 </div>
 </div>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        
+      </div>
+      <div class="modal-body">
+        <div >
+            
+            <a href="{{URL::to('/exercise/'.$topic->id)}}">
+                <h4>
+                    Exercise
+                </h4> {{$topic->exercises->count()}} question</a> 
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script>
+function endVideo(){
+    $("#myModal").modal("show")
+}
+</script>
 @endsection

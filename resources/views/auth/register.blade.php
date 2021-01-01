@@ -34,6 +34,16 @@
 
                 <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
             </div>
+            <div class="mt-4">
+                <x-label for="name" :value="__('Father Name')" />
+
+                <x-input id="name" class="block mt-1 w-full" type="text" name="father_name" :value="old('father_name')" required autofocus />
+            </div>
+            <div class="mt-4">
+                <x-label for="name" :value="__('Mother Name')" />
+
+                <x-input id="name" class="block mt-1 w-full" type="text" name="mother_name" :value="old('mother_name')" required autofocus />
+            </div>
 
             <!-- Email Address -->
             <div class="mt-4">

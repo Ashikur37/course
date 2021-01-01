@@ -8,6 +8,8 @@ use App\Models\Teacher;
 use App\Models\Department;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Exam;
+use App\Models\ExamQuestion;
 
 class ExamController extends Controller
 {
@@ -20,7 +22,7 @@ class ExamController extends Controller
     {
         
         
-        return view('teacher.exam.index',compact('course'));
+        return view('teacher.exam.index',compact('course')); 
     }
 
     /**
@@ -28,11 +30,10 @@ class ExamController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Course $course)
     {
-        $departments=Department::all();
-        $teachers=Teacher::all();
-        return view('admin.course.create',compact('departments','teachers'));
+        
+        return view('teacher.exam.create',compact('course'));
     }
 
     /**
@@ -41,20 +42,22 @@ class ExamController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Course $course,Request $request)
     {
-        $imageName ="";
-        if($request->image){
-            $imageName = time().'.'.$request->image->extension();  
-            $request->image->move(public_path('images'), $imageName);
+        for($i=0;$i<count($request->question);$i++){
+            if($request->question[$i]){
+                ExamQuestion::create([
+                    'course_id'=>$course->id,
+                    "question"=>$request->question[$i],
+                    "option1"=>$request->option1[$i],
+                    "option2"=>$request->option2[$i],
+                    "option3"=>$request->option3[$i],
+                    "option4"=>$request->option4[$i],
+                    "correct_answer"=>$request->correct_answer[$i],
+                ]);
+            }
         }
-        Course::create([
-            "name"=>$request->name,
-            "department_id"=>$request->department_id,
-            "teacher_id"=>$request->teacher_id,
-            "logo"=>$imageName
-        ]);
-        return redirect()->route('course.index'); 
+        return redirect('teacher/'.$course->id.'/exam'); 
     }   
 
     /**

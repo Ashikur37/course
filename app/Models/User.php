@@ -49,5 +49,15 @@ class User extends Authenticatable
     }
     public function Department(){
         return $this->belongsTo(Department::class);
+    } 
+    public function studentExams(){
+        return $this->belongsTo(StudentExam::class);
+    } 
+    public static function canExam($course){
+        if(StudentExam::where('user_id',auth()->user()->id)->where('course_id',$course)->first()){
+            return false;
+        }
+        return true;
     }
+    //student_exams
 }

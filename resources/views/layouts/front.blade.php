@@ -9,8 +9,8 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{URL::to('/')}}/css/bootstrap.min.css">
-    
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
     <!-- FontAwesome CSS -->
     <link rel="stylesheet" href="{{URL::to('/')}}/css/font-awesome.min.css">
@@ -26,6 +26,11 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{URL::to('/')}}/style.css">
+    <style>
+        .fade {
+    opacity: 1;
+    }
+    </style>
 </head>
 <body>
     <div class="hero-content">
@@ -50,11 +55,18 @@
                                     <button type="submit" value="" class="flex justify-content-center align-items-center"><i class="fa fa-search"></i></button>
                                 </form>
                             </div><!-- .header-bar-search -->
-
+                            <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                                @csrf
+                            </form>
                             <div class="header-bar-menu">
                                 <ul class="flex justify-content-center align-items-center py-2 pt-md-0">
+                                    @guest
                                     <li><a href="{{URL::to('/register')}}">Register</a></li>
                                     <li><a href="{{URL::to('/login')}}">Login</a></li>
+                                    @else
+                                    <li><a onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();" href="#" class="nav-link">Logout</a></li> 
+                                    @endguest
                                 </ul>
                             </div><!-- .header-bar-menu -->
                         </div><!-- .col -->
@@ -200,7 +212,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         </div><!-- .footer-bar -->
     </footer><!-- .site-footer -->
 
-<script type='text/javascript' src='{{URL::to('/')}}/js/jquery.js'></script>
+
 <script type='text/javascript' src='{{URL::to('/')}}/js/swiper.min.js'></script>
 <script type='text/javascript' src='{{URL::to('/')}}/js/masonry.pkgd.min.js'></script>
 <script type='text/javascript' src='{{URL::to('/')}}/js/jquery.collapsible.min.js'></script>
