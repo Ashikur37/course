@@ -24,7 +24,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-md-6 col-lg-3">
-                        <a href="{{URL::to('/job/bangla')}}">
+                        <a href="{{URL::to('/job/bangla/grammer')}}">
                             <div class="team-member">
                                 <img src="" alt="">
                                 <h3>ব্যাকরন</h3>
@@ -32,7 +32,7 @@
                         </a>
                     </div>
                     <div class="col-12 col-md-6 col-lg-3">
-                        <a href="{{URL::to('/job/english')}}">
+                        <a href="{{URL::to('/job/bangla/literature')}}">
                             <div class="team-member">
                                 <img src="" alt="">
                                 <h3>সাহিত্য</h3>

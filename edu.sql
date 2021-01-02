@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 01, 2021 at 03:55 PM
+-- Generation Time: Jan 02, 2021 at 02:52 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -20,6 +20,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `edu`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bengali_grammers`
+--
+
+CREATE TABLE `bengali_grammers` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `file` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `bengali_grammers`
+--
+
+INSERT INTO `bengali_grammers` (`id`, `title`, `file`, `created_at`, `updated_at`) VALUES
+(2, 'grammer', '1609593559.pdf', '2021-01-02 07:19:19', '2021-01-02 07:19:19');
 
 -- --------------------------------------------------------
 
@@ -125,6 +146,27 @@ INSERT INTO `departments` (`id`, `name`, `image`, `created_at`, `updated_at`) VA
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `english_grammers`
+--
+
+CREATE TABLE `english_grammers` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `title` varchar(400) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `file` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `english_grammers`
+--
+
+INSERT INTO `english_grammers` (`id`, `created_at`, `updated_at`, `title`, `file`) VALUES
+(1, '2021-01-02 07:50:57', '2021-01-02 07:50:57', 'article', '1609595457.pdf');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `exams`
 --
 
@@ -216,6 +258,27 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `math_topics`
+--
+
+CREATE TABLE `math_topics` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `body` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `math_topics`
+--
+
+INSERT INTO `math_topics` (`id`, `title`, `body`, `created_at`, `updated_at`) VALUES
+(2, 'algebra', '<p>asksd</p>', '2021-01-02 07:37:07', '2021-01-02 07:37:07');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `migrations`
 --
 
@@ -247,7 +310,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (18, '2020_12_26_155856_create_exams_table', 7),
 (19, '2020_12_26_160425_create_exam_questions_table', 7),
 (20, '2021_01_01_132358_create_student_exams_table', 8),
-(21, '2021_01_01_132421_create_student_exam_questions_table', 8);
+(21, '2021_01_01_132421_create_student_exam_questions_table', 8),
+(22, '2021_01_02_130233_create_bengali_grammers_table', 9),
+(23, '2021_01_02_130329_create_math_topics_table', 9),
+(24, '2021_01_02_133802_create_english_grammers_table', 10);
 
 -- --------------------------------------------------------
 
@@ -423,6 +489,12 @@ CREATE TABLE `videos` (
 --
 
 --
+-- Indexes for table `bengali_grammers`
+--
+ALTER TABLE `bengali_grammers`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `chapters`
 --
 ALTER TABLE `chapters`
@@ -453,6 +525,12 @@ ALTER TABLE `departments`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `english_grammers`
+--
+ALTER TABLE `english_grammers`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `exams`
 --
 ALTER TABLE `exams`
@@ -476,6 +554,12 @@ ALTER TABLE `exercises`
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indexes for table `math_topics`
+--
+ALTER TABLE `math_topics`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `migrations`
@@ -543,6 +627,12 @@ ALTER TABLE `videos`
 --
 
 --
+-- AUTO_INCREMENT for table `bengali_grammers`
+--
+ALTER TABLE `bengali_grammers`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `chapters`
 --
 ALTER TABLE `chapters`
@@ -573,6 +663,12 @@ ALTER TABLE `departments`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `english_grammers`
+--
+ALTER TABLE `english_grammers`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `exams`
 --
 ALTER TABLE `exams`
@@ -597,10 +693,16 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `math_topics`
+--
+ALTER TABLE `math_topics`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `poets`

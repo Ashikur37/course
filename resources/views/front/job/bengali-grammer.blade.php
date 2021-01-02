@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-12">
                 <header class="entry-header">
-                    <h1 style="color:#fff">Current Affairs</h1>
+                    <h1 style="color:#fff">Bengali Grammer</h1>
                 </header><!-- .entry-header -->
             </div><!-- .col -->
         </div><!-- .row -->
@@ -18,18 +18,19 @@
     <div class="container-fluid">
         <br>
         <center>
-            <h1>Math Topics</h1>
+            <h1>Bengali Grammer</h1>
         </center>
         <div class="container">
             <div class="container">
                 <div class="row">
                     <ul class="list-group" style="width:100%;padding:20px">
-                        @foreach($topics as $topic)
+                        @foreach($grammers as $grammer)
                             <li class="list-group-item">
-                                {{$topic->title}}
-                            </li>
-                            <li class="list-group-item">
-                                {!!$topic->body!!}
+                                <h4>
+                                    <a href="{{URL::to('/images/'.$grammer->file)}}">
+                                        {{$grammer->title}}
+                                    </a>
+                                </h4>
                             </li>
                         @endforeach
                     </ul>

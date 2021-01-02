@@ -34,6 +34,16 @@ Route::group(['prefix' => 'admin',  'middleware' => 'is_admin'],function() {
 
     Route::resource('/current-affairs','App\Http\Controllers\Admin\CurrentAffairsController');
     Route::get('/current-affairs/delete/{currentAffair}','App\Http\Controllers\Admin\CurrentAffairsController@destroy');
+ 
+    Route::resource('/bengali-grammer','App\Http\Controllers\Admin\GrammerController');
+    Route::get('/bengali-grammer/delete/{bengaliGrammer}','App\Http\Controllers\Admin\GrammerController@destroy');
+
+    Route::resource('/english-grammer','App\Http\Controllers\Admin\EnglishGrammerController');
+    Route::get('/english-grammer/delete/{englishGrammer}','App\Http\Controllers\Admin\EnglishGrammerController@destroy');
+
+
+    Route::resource('/math','App\Http\Controllers\Admin\MathController');
+    Route::get('/math/delete/{mathTopic}','App\Http\Controllers\Admin\MathController@destroy');
 });
 // Teacher routes
 Route::group(['prefix' => 'teacher',  'middleware' => 'is_teacher'],function() {
@@ -70,8 +80,11 @@ Route::get('/poet/en/{poet}','App\Http\Controllers\Front\PageController@poetEn')
 Route::get('/poet/bn/{poet}','App\Http\Controllers\Front\PageController@poetBn');
 Route::get('/job','App\Http\Controllers\Front\PageController@job');
 Route::get('/job/bangla','App\Http\Controllers\Front\PageController@jobBangla');
+//job/bangla/grammer
+Route::get('job/bangla/grammer','App\Http\Controllers\Front\PageController@jobBanglaGrammer');
 Route::get('/job/english','App\Http\Controllers\Front\PageController@jobEnglish');
-Route::get('/job/math','App\Http\Controllers\Front\PageController@jobMath');
+Route::get('job/english/grammer','App\Http\Controllers\Front\PageController@jobEnglishGrammer');
+Route::get('/job/math','App\Http\Controllers\Front\PageController@jobMath'); 
 Route::get('/job/gk','App\Http\Controllers\Front\PageController@jobGk');
 Route::get('job/current-affairs','App\Http\Controllers\Front\PageController@currentAffairs');
 Route::get('exercise/{topic}','App\Http\Controllers\Front\PageController@exercise');

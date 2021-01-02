@@ -225,6 +225,24 @@
                   <p>Current Affairs</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{route('bengali-grammer.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Bengali Grammer</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('english-grammer.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>English Grammer</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('math.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Math</p>
+                </a>
+              </li>
             </ul>
           </li>
           <li class="nav-item">

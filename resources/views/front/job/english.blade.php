@@ -24,7 +24,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-md-6 col-lg-3">
-                        <a href="{{URL::to('/job/bangla')}}">
+                        <a href="{{URL::to('/job/english/grammer')}}">
                             <div class="team-member">
                                 <img src="" alt="">
                                 <h3>Grammer</h3>
