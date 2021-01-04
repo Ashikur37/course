@@ -7,6 +7,7 @@ use App\Models\Course;
 use App\Models\Department;
 use App\Models\ExamQuestion;
 use App\Models\StudentExam;
+use App\Models\StudentExamQuestion;
 use Illuminate\Http\Request;
 class HomeController extends Controller
 {
@@ -21,18 +22,35 @@ class HomeController extends Controller
 
     }
     public function courseExam(Course $course){
-        // StudentExam::create([
-        //     "user_id"=>auth()->user()->id,
-        //     "course_id"=>$course->id,
-        //     "total_question"=>$course->examQuestions->count(), 
-        //     "correct_answer"=>0,
-        //     "is_passed"=>0
-        // ]);
+        StudentExam::create([
+            "user_id"=>auth()->user()->id,
+            "course_id"=>$course->id,
+            "total_question"=>$course->examQuestions->count(), 
+            "correct_answer"=>0,
+            "is_passed"=>0
+        ]); 
         return view("student.home.examQuestion",compact('course'));
+    }
+    public function courseExamFinish(Course $course){
+        $exam=StudentExam::where('user_id','=',auth()->user()->id)->where('course_id','=',$course->id)->first();
+        $correct_answers=StudentExamQuestion::where('student_exam_id',$exam->id)->whereColumn('answer','correct_answer')->count();
+        $total_questions=$course->examQuestions->count();
+        return view("student.home.examFinish",compact('course','correct_answers','exam','total_questions'));
     }
     //courseQuestion
     public function courseQuestion(Course $course,$n,$ans){
+        $exam=StudentExam::where('user_id','=',auth()->user()->id)->where('course_id','=',$course->id)->first();
+        $currentQuestion =ExamQuestion::where('course_id',$course->id)->skip($n-1)->first();
+        StudentExamQuestion::create([
+            "student_exam_id"=>$exam->id,
+            "question"=>$currentQuestion->question,
+            "answer"=>$currentQuestion[$ans],
+            "correct_answer"=>$currentQuestion[$currentQuestion->correct_answer]
+        ]);
         $question =ExamQuestion::where('course_id',$course->id)->skip($n)->first();
+        if(!$question){
+            return "done";
+        }
         return view("student.home.question",compact('question'));
     }
     public function nextQuestion(Request $request){

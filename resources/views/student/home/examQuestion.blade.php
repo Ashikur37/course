@@ -81,7 +81,7 @@ function startTimer(duration, display) {
         display.textContent = minutes + ":" + seconds;
 
         if (--timer < 0) {
-            
+          window.location.href="{{URL::to('/student/'.$course->id)}}/exam/finish";
         }
     }, 1000);
 }
@@ -93,7 +93,14 @@ function next(){
     }
     
         if(current=={{$course->examQuestions->count()}}){
-            alert("Submitted");
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              window.location.href="{{URL::to('/student/'.$course->id)}}/exam/finish";
+            }
+          };
+          xhttp.open("GET", "{{URL::to('/student/'.$course->id)}}/exam/"+current+"/"+$('input[name=question]:checked').val(), true);
+          xhttp.send();
             return;
         }
         else{
