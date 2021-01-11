@@ -19,7 +19,8 @@ class HomeController extends Controller
         return view('student.home.exam',compact('department'));
     }
     public function result(){
-
+        $exams=StudentExam::where('user_id',auth()->user()->id)->get();
+        return view('student.home.result',compact('exams'));
     }
     public function courseExam(Course $course){
         StudentExam::create([

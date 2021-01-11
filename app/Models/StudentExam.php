@@ -11,5 +11,11 @@ class StudentExam extends Model
     protected $guarded=[];
     public function Questions(){
         return $this->hasMany(StudentExamQuestion::class);
+    } 
+    public function correctAnswer(){
+        return $this->hasMany(StudentExamQuestion::class)->whereColumn('answer','correct_answer');
+    } 
+    public function course(){
+        return $this->belongsTo(Course::class);
     }
 }
