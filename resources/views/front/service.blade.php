@@ -57,7 +57,7 @@
                         </a>
                     </div>
                     <div class="col-12 col-md-6 col-lg-3">
-                        <a href="{{URL::to('/academic?department=Economics')}}">
+                        <a href="{{URL::to('/motivation')}}">
                             <div class="team-member">
                                 <img src="" alt="">
                                 <h3>Motivation</h3>

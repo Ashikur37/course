@@ -11,6 +11,7 @@ use App\Models\Department;
 use App\Models\EnglishGrammer;
 use App\Models\Exercise;
 use App\Models\MathTopic;
+use App\Models\Motivation;
 use App\Models\Poet;
 use App\Models\Topic;
 use Illuminate\Http\Request;
@@ -71,7 +72,7 @@ class PageController extends Controller
         return view('front.job.math',compact('topics')); 
     }
     public function jobGk(){
-        return view('front.job.gk');
+        return view('front.job.gk'); 
     }
     public function currentAffairs(){
         $affairs =CurrentAffair::all();
@@ -100,5 +101,18 @@ class PageController extends Controller
         }
         return view('front.exercise-submit',compact('topic','corrects'));
     }
+    public function motivation(){
+        $motivation=Motivation::first();
+        return view('front.motivation',compact('motivation'));
+    }
+    public function jobBangladesh(){
+        $motivation=Motivation::find(2);
+        return view('front.motivation',compact('motivation'));
+    }
+    public function jobWorld(){
+        $motivation=Motivation::find(3);
+        return view('front.motivation',compact('motivation'));
+    }
+    
     
 }

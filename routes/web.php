@@ -21,6 +21,10 @@ Route::get('/', function () {
 Route::group(['prefix' => 'admin',  'middleware' => 'is_admin'],function() {
     Route::get('/home','App\Http\Controllers\Admin\HomeController@index');
     Route::resource('/course','App\Http\Controllers\Admin\CourseController'); 
+    Route::resource('/motivation','App\Http\Controllers\Admin\MotivationController'); 
+    Route::get('/general/bangladesh','App\Http\Controllers\Admin\MotivationController@bangladesh');
+    Route::get('/general/world','App\Http\Controllers\Admin\MotivationController@world');
+
     Route::resource('/poet','App\Http\Controllers\Admin\PoetController'); 
     Route::get('/poet/delete/{poet}','App\Http\Controllers\Admin\PoetController@destroy');
     Route::get('/course/delete/{course}','App\Http\Controllers\Admin\CourseController@destroy');
@@ -70,6 +74,7 @@ Route::group(['prefix' => 'teacher',  'middleware' => 'is_teacher'],function() {
 
 });
 Route::get('/contact','App\Http\Controllers\Front\PageController@contact')->name('contact'); 
+Route::get('/motivation','App\Http\Controllers\Front\PageController@motivation'); 
 Route::get('/services','App\Http\Controllers\Front\PageController@service')->name('service'); 
 Route::get('/teacher-info','App\Http\Controllers\Front\PageController@teacher')->name('teacher'); 
 Route::get('/academic','App\Http\Controllers\Front\PageController@academic')->name('academic');
@@ -86,6 +91,8 @@ Route::get('/job/english','App\Http\Controllers\Front\PageController@jobEnglish'
 Route::get('job/english/grammer','App\Http\Controllers\Front\PageController@jobEnglishGrammer');
 Route::get('/job/math','App\Http\Controllers\Front\PageController@jobMath'); 
 Route::get('/job/gk','App\Http\Controllers\Front\PageController@jobGk');
+Route::get('/job/bangladesh','App\Http\Controllers\Front\PageController@jobBangladesh');
+Route::get('/job/world','App\Http\Controllers\Front\PageController@jobWorld');
 Route::get('job/current-affairs','App\Http\Controllers\Front\PageController@currentAffairs');
 Route::get('exercise/{topic}','App\Http\Controllers\Front\PageController@exercise');
 Route::post('exercise/{topic}','App\Http\Controllers\Front\PageController@exerciseSubmit');

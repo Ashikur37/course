@@ -207,6 +207,12 @@
                   <p>Poet List</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{route('motivation.show',1)}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Motivation</p>
+                </a>
+              </li>
             </ul>
           </li>
           <li class="nav-item has-treeview ">
@@ -226,9 +232,15 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('bengali-grammer.index')}}" class="nav-link">
+                <a href="{{URL::to('/admin/general/bangladesh')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Bengali Grammer</p>
+                  <p>General Knowledge<br> Bangladesh</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{URL::to('/admin/general/world')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>General Knowledge<br> World</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -335,5 +347,6 @@
     });
   })
     </script>
+    @yield('script')
 </body>
 </html>
