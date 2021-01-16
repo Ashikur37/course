@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Poet;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Content;
 use App\Models\MathTopic;
 use App\Models\Motivation;
 
@@ -17,8 +18,8 @@ class MotivationController extends Controller
      */
     public function index()
     {
-        $maths=MathTopic::all();
-        return view('admin.math.index',compact('maths'));
+        $motivations=Content::whereType('motivation')->get();
+        return view('admin.motivation.index',compact('motivations'));
     }
 
     /**
@@ -28,7 +29,7 @@ class MotivationController extends Controller
      */
     public function create()
     {
-        return view('admin.math.create');
+        return view('admin.motivation.create');
     }
 
     /**
@@ -39,14 +40,24 @@ class MotivationController extends Controller
      */
     public function store(Request $request)
     {
-
-        MathTopic::create([
-            "title"=>$request->title,
-            "body"=>$request->body,
-
-
-        ]);
-        return redirect()->route('math.index');
+        $imageName="";
+            if($request->file){
+            $imageName = time().'.'.$request->file->extension();  
+            $request->file->move(public_path('images'), $imageName);
+            }
+            $videoName ="";
+            if($request->video){
+                $videoName = time().'.'.$request->video->extension();  
+                $request->video->move(public_path('images'), $videoName);
+                }
+                Content::create([
+                    "type"=>"motivation",
+                    "name"=>$request->name,
+                    "details"=>"",
+                    "file"=>$imageName,
+                    "video"=>$videoName
+                ]);
+        return redirect()->route('motivation.index');
     }   
 
     /**

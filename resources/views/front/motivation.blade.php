@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-12">
                 <header class="entry-header">
-                    <h1 style="color:#fff">{{["","Motivation","General Knowledge Bangladesh","General Knowledge World"][$motivation->id]}}</h1>
+                    <h1 style="color:#fff">{{$title}}</h1> 
                 </header><!-- .entry-header -->
             </div><!-- .col -->
         </div><!-- .row -->
@@ -13,13 +13,16 @@
 </div><!-- .page-header-overlay -->
 @endsection
 @section('content')
-    
+    @foreach($motivations as $motivation)
+    <center>
+        <h4>{{$motivation->name}}</h4>
+    </center>
 <div class="icon-boxes">
     <div class="container-fluid">
         <br>
         <center>
             <a href="{{URL::to('/images/'.$motivation->file)}}">
-                <h4>Download</h4>
+                <h5>Download</h5>
             </a>
         </center>
     </div> 
@@ -32,13 +35,5 @@
           </video>
     </figure>
 </div><!-- .course-thumbnail -->
-<div class="container">
-<div class="row">
-    
-        {!!$motivation->details!!}
-   
-
-    <!-- .col -->
-</div>
-</div>
+@endforeach
 @endsection

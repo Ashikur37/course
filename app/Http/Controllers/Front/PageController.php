@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Models\BengaliGrammer;
 use App\Models\Chapter;
+use App\Models\Content;
 use App\Models\Course;
 use App\Models\CurrentAffair;
 use App\Models\Department;
@@ -102,16 +103,19 @@ class PageController extends Controller
         return view('front.exercise-submit',compact('topic','corrects'));
     }
     public function motivation(){
-        $motivation=Motivation::first();
-        return view('front.motivation',compact('motivation'));
+        $motivations=Content::whereType('motivation')->get();
+        $title="Motivation";
+        return view('front.motivation',compact('motivations','title')); 
     }
     public function jobBangladesh(){
-        $motivation=Motivation::find(2);
-        return view('front.motivation',compact('motivation'));
+        $motivations=Content::whereType('bangladesh')->get();
+        $title="Bangladesh";
+        return view('front.motivation',compact('motivations','title'));
     }
     public function jobWorld(){
-        $motivation=Motivation::find(3);
-        return view('front.motivation',compact('motivation'));
+        $motivations=Content::whereType('world')->get();
+        $title="World";
+        return view('front.motivation',compact('motivations','title'));
     }
     
     

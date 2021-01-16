@@ -26,7 +26,7 @@
                     <div class="col-12 col-md-6 col-lg-3">
                         <a href="{{URL::to('/job/bangla/grammer')}}">
                             <div class="team-member">
-                                <img src="" alt="">
+                                <img src="{{URL::to('/images/bn_grammer.jpg')}}" alt="">
                                 <h3>ব্যাকরন</h3>
                             </div>
                         </a>
@@ -34,7 +34,7 @@
                     <div class="col-12 col-md-6 col-lg-3">
                         <a href="{{URL::to('/job/bangla/literature')}}">
                             <div class="team-member">
-                                <img src="" alt="">
+                                <img src="{{URL::to('/images/lit.jpg')}}" alt="">
                                 <h3>সাহিত্য</h3>
                             </div>
                         </a>

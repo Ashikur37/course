@@ -50,7 +50,7 @@
                     <div class="col-12 col-md-6 col-lg-3">
                         <a href="{{URL::to('/job/gk')}}">
                             <div class="team-member">
-                                <img src="" alt="">
+                                <img src="{{URL::to('/images/gk.jpg')}}" alt="">
                                 <h3>General Knowledge</h3>
                             </div>
                         </a>

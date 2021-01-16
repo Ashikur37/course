@@ -26,7 +26,7 @@
                     <div class="col-12 col-md-6 col-lg-3">
                         <a href="{{URL::to('/job/english/grammer')}}">
                             <div class="team-member">
-                                <img src="" alt="">
+                                <img src="{{URL::to('/images/en_grammer.jpg')}}" alt="">
                                 <h3>Grammer</h3>
                             </div>
                         </a>
@@ -34,7 +34,7 @@
                     <div class="col-12 col-md-6 col-lg-3">
                         <a href="{{URL::to('/job/english')}}">
                             <div class="team-member">
-                                <img src="" alt="">
+                                <img src="{{URL::to('/images/lit.jpg')}}" alt="">
                                 <h3>Literature</h3>
                             </div>
                         </a>
