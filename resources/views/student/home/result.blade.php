@@ -39,6 +39,7 @@
                           <th>Number Of Question</th>
                           <th>Correct Answer</th>
                           <th>Grade</th>
+                          <th>Certificate</th>
                       </tr>
                   </thead>
                   <tbody>
@@ -68,6 +69,13 @@
                                       <b>2.00(D)</b>
                                       @else
                                       <b>0.00(F)</b>
+                                      @endif
+                                  </td>
+                                  <td>
+                                      @if((($exam->correctAnswer->count()/$exam->course->examQuestions->count())*100)>=50)
+                                        <a href="{{URL::to('/student/course/certificate/'.$exam->course->id)}}">View</a>
+                                      @else 
+                                      <h4>Not Available</h4>
                                       @endif
                                   </td>
                               </tr>

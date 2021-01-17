@@ -105,6 +105,8 @@ Route::group(['prefix' => 'student'],function() {
     Route::get('/{course}/exam','App\Http\Controllers\Student\HomeController@courseExam'); 
     Route::get('/{course}/exam/{n}/{ans}','App\Http\Controllers\Student\HomeController@courseQuestion');
     Route::get('/{course}/exam/finish','App\Http\Controllers\Student\HomeController@courseExamFinish');
+    Route::get('/course/certificate/{course}','App\Http\Controllers\Student\HomeController@courseCertificate');
+    //
 });
 
 Route::get('/dashboard', function () {
