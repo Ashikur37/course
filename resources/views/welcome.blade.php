@@ -79,7 +79,7 @@
                 </div><!-- .icon -->
 
                 <header class="entry-header">
-                    <h2 class="entry-title">Best Industry Leaders</h2>
+                    <h2 class="entry-title">About Us</h2>
                 </header><!-- .entry-header -->
 
                 <div class="entry-content">
