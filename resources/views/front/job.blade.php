@@ -26,7 +26,7 @@
                     <div class="col-12 col-md-6 col-lg-3">
                         <a href="{{URL::to('/job/bangla')}}">
                             <div class="team-member">
-                                <img src="" alt="">
+                                <img src="{{URL::to('/images/bangla.jpg')}}" alt="">
                                 <h3>Bangla</h3>
                             </div>
                         </a>
@@ -34,7 +34,7 @@
                     <div class="col-12 col-md-6 col-lg-3">
                         <a href="{{URL::to('/job/english')}}">
                             <div class="team-member">
-                                <img src="" alt="">
+                                <img src="{{URL::to('/images/english.jpg')}}" alt="">
                                 <h3>English</h3>
                             </div>
                         </a>
@@ -42,7 +42,7 @@
                     <div class="col-12 col-md-6 col-lg-3">
                         <a href="{{URL::to('/job/math')}}">
                             <div class="team-member">
-                                <img src="" alt="">
+                                <img src="{{URL::to('/images/math.jpg')}}" alt="">
                                 <h3>Math</h3>
                             </div>
                         </a>
