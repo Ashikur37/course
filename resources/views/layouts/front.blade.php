@@ -89,7 +89,7 @@
                                     <li class="current-menu-item"><a href="{{URL::to('/')}}">Home</a></li>
                                     <li><a href="{{route('service')}}">Services</a></li>
                                    
-                                    <li><a href="{{route('teacher')}}">Teachers Info</a></li>
+                                    <li><a href="{{route('teacher')}}">Instructor</a></li>
                                     <li><a href="{{route('contact')}}">Contact</a></li>
                                 </ul>
 
@@ -128,15 +128,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-md-6 col-lg-3">
-                        <div class="foot-about">
-                            <a class="foot-logo" href="#"><img src="images/foot-logo.png" alt=""></a>
-
-                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia dese mollit anim id est laborum. </p>
-
-                            <p class="footer-copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by 
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                        </div><!-- .foot-about -->
+                         
                     </div><!-- .col -->
 
                     <div class="col-12 col-md-6 col-lg-3 mt-5 mt-md-0">
@@ -200,7 +192,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
                     <div class="col-12 col-lg-6 mt-4 mt-lg-0">
                         <div class="footer-bar-nav">
-                            <ul class="flex flex-wrap justify-content-center justify-content-lg-end align-items-center">
+                        <!--    <ul class="flex flex-wrap justify-content-center justify-content-lg-end align-items-center">
                                 <li><a href="#">DPA</a></li>
                                 <li><a href="#">Terms of Use</a></li>
                                 <li><a href="#">Privacy Policy</a></li>

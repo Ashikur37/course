@@ -7,9 +7,9 @@
     </header><!-- .entry-header -->
 
     <div class="entry-content">
-        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
+        <p>Talent is universal,but opportunities are not.With access to online learing resources and instruction,anyone,anywhere,can gain skills and transform their lives in meaningful ways.</p>
     </div><!-- .entry-content -->
-
+<!--
     <footer class="entry-footer read-more">
         <a href="#">read more</a>
     </footer><!-- .entry-footer -->
@@ -29,9 +29,9 @@
                 </header><!-- .entry-header -->
 
                 <div class="entry-content">
-                    <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
+                    <p>Our exparts give qualitifull lectures.They have degrees on each course.</p>
                 </div><!-- .entry-content -->
-
+<!--
                 <footer class="entry-footer read-more">
                     <a href="#">read more<i class="fa fa-long-arrow-right"></i></a>
                 </footer><!-- .entry-footer -->
@@ -43,13 +43,14 @@
                 </div><!-- .icon -->
 
                 <header class="entry-header">
-                    <h2 class="entry-title">Book Library & Store</h2>
+                    <h2 class="entry-title">Our Aim</h2>
                 </header><!-- .entry-header -->
 
                 <div class="entry-content">
-                    <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
+                    <p>This is quite benifical as the student can learn the subject from the comfort of his home.
+                    </p>
                 </div><!-- .entry-content -->
-
+<!--
                 <footer class="entry-footer read-more">
                     <a href="#">read more<i class="fa fa-long-arrow-right"></i></a>
                 </footer><!-- .entry-footer -->
@@ -65,9 +66,9 @@
                 </header><!-- .entry-header -->
 
                 <div class="entry-content">
-                    <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
+                    <p>The blogs at online education academy cover topics that range from academy to inspirational articales,personal stories of success,failure,university life to skill training,life hacks,business hacks.</p>
                 </div><!-- .entry-content -->
-
+<!--
                 <footer class="entry-footer read-more">
                     <a href="#">read more<i class="fa fa-long-arrow-right"></i></a>
                 </footer><!-- .entry-footer -->
@@ -83,9 +84,13 @@
                 </header><!-- .entry-header -->
 
                 <div class="entry-content">
-                    <p>Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.</p>
-                </div><!-- .entry-content -->
+                    <p>Online Education Academy teaches everything starting from university.
+                        The plateform covers academic classes from university covering the entire academic syllabus of bangladesh university system.
 
+                    </p>
+
+                </div><!-- .entry-content -->
+<!--
                 <footer class="entry-footer read-more">
                     <a href="#">read more<i class="fa fa-long-arrow-right"></i></a>
                 </footer><!-- .entry-footer -->

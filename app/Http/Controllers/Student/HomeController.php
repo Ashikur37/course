@@ -57,4 +57,10 @@ class HomeController extends Controller
     public function nextQuestion(Request $request){
 
     }
+    public function courseCertificate(Course $course){
+        $exam=StudentExam::where('user_id',auth()->user()->id)->where('course_id',$course->id)->first();
+        if((($exam->correctAnswer->count()/$exam->course->examQuestions->count())*100)>=50){
+            return view('student.home.certificate',compact('course','exam'));
+        }
+    }
 }

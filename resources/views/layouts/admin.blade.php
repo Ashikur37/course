@@ -208,7 +208,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('motivation.show',1)}}" class="nav-link">
+                <a href="{{route('motivation.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Motivation</p>
                 </a>
@@ -232,13 +232,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{URL::to('/admin/general/bangladesh')}}" class="nav-link">
+                <a href="{{URL::to('/admin/bangladesh')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>General Knowledge<br> Bangladesh</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{URL::to('/admin/general/world')}}" class="nav-link">
+                <a href="{{URL::to('/admin/world')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>General Knowledge<br> World</p>
                 </a>

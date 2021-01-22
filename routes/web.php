@@ -22,8 +22,8 @@ Route::group(['prefix' => 'admin',  'middleware' => 'is_admin'],function() {
     Route::get('/home','App\Http\Controllers\Admin\HomeController@index');
     Route::resource('/course','App\Http\Controllers\Admin\CourseController'); 
     Route::resource('/motivation','App\Http\Controllers\Admin\MotivationController'); 
-    Route::get('/general/bangladesh','App\Http\Controllers\Admin\MotivationController@bangladesh');
-    Route::get('/general/world','App\Http\Controllers\Admin\MotivationController@world');
+    Route::resource('/bangladesh','App\Http\Controllers\Admin\BangladeshController');
+    Route::resource('/world','App\Http\Controllers\Admin\WorldController');
 
     Route::resource('/poet','App\Http\Controllers\Admin\PoetController'); 
     Route::get('/poet/delete/{poet}','App\Http\Controllers\Admin\PoetController@destroy');
@@ -105,6 +105,8 @@ Route::group(['prefix' => 'student'],function() {
     Route::get('/{course}/exam','App\Http\Controllers\Student\HomeController@courseExam'); 
     Route::get('/{course}/exam/{n}/{ans}','App\Http\Controllers\Student\HomeController@courseQuestion');
     Route::get('/{course}/exam/finish','App\Http\Controllers\Student\HomeController@courseExamFinish');
+    Route::get('/course/certificate/{course}','App\Http\Controllers\Student\HomeController@courseCertificate');
+    //
 });
 
 Route::get('/dashboard', function () {

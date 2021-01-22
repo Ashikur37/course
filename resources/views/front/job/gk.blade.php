@@ -26,7 +26,7 @@
                     <div class="col-12 col-md-6 col-lg-3">
                         <a href="{{URL::to('/job/current-affairs')}}">
                             <div class="team-member">
-                                <img src="" alt="">
+                                <img src="{{URL::to('/images/ca.jpg')}}" alt="">
                                 <h3>Current Affairs</h3>
                             </div>
                         </a>
@@ -34,7 +34,7 @@
                     <div class="col-12 col-md-6 col-lg-3">
                         <a href="{{URL::to('/job/bangladesh')}}">
                             <div class="team-member">
-                                <img src="" alt="">
+                                <img src="{{URL::to('/images/bangladesh.jpg')}}" alt="">
                                 <h3>Bangladesh</h3>
                             </div>
                         </a>
@@ -42,7 +42,7 @@
                     <div class="col-12 col-md-6 col-lg-3">
                         <a href="{{URL::to('/job/world')}}">
                             <div class="team-member">
-                                <img src="" alt="">
+                                <img src="{{URL::to('/images/world.jpg')}}" alt="">
                                 <h3>World</h3>
                             </div>
                         </a>

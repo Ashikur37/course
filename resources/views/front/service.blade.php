@@ -43,7 +43,7 @@
                     <div class="col-12 col-md-6 col-lg-3">
                         <a href="{{URL::to('/literature')}}">
                             <div class="team-member">
-                                <img src="public/images/b.jpg/" alt="">
+                                <img src="{{URL::to('/images/lit.jpg')}}" alt="">
                                 <h3>Literature</h3>
                             </div>
                         </a>
@@ -51,7 +51,7 @@
                     <div class="col-12 col-md-6 col-lg-3">
                         <a href="{{URL::to('/job')}}">
                             <div class="team-member">
-                                <img src="public/images/b.jpg" alt="" />
+                                <img src="{{URL::to('/images/job.jpg')}}" alt="">
                                 <h3>Job Preparation</h3>
                             </div>
                         </a>
@@ -59,7 +59,7 @@
                     <div class="col-12 col-md-6 col-lg-3">
                         <a href="{{URL::to('/motivation')}}">
                             <div class="team-member">
-                                <img src="" alt="">
+                                <img src="{{URL::to('/images/motivation.jpg')}}" alt="">
                                 <h3>Motivation</h3>
                             </div>
                         </a>

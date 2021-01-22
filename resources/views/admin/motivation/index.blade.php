@@ -6,7 +6,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0 text-dark">{{["","Edit Motivation","General Knowledge Bangladesh","General Knowledge World"][$motivation->id]}}</h1>
+          <h1 class="m-0 text-dark">Topic List</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
@@ -24,56 +24,48 @@
     <div class="container-fluid">
       <!-- Small boxes (Stat box) -->
       <div class="row">
-        <div class="col-12">
-            <div class="card">
-              <div class="card-header">
-                
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <form role="form" method="post" action="{{route('motivation.update',$motivation->id)}}" enctype="multipart/form-data">
-                    @method('patch')
-                    @csrf
-                   
-
-                    <div class="card-body">
-                        
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">File</label>
-                        <input type="file" name="file"  class="form-control-file"/>
-                    </div> 
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Video</label>
-                        <input type="file" name="video"  class="form-control-file"/>
-                    </div>
-                      <div class="form-group">
-                        <label for="exampleInputPassword1">Details</label>
-                        <textarea name="body" class="textarea" placeholder="Enter Description"
-                          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-                      </div> 
-
-    
-                    <div class="card-footer">
-                      <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                  </form>
+        
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header">
+                    <a class="btn btn-info" href="{{route('motivation.create')}}">Create New</a>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+            <table class="table table-bordered table-hover" id="example1">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>File</th>
+                        <th>Video</th>
+                        {{-- <th>Action</th> --}}
+                    </tr>
+                </thead>
+                <tbody>
+                        @foreach($motivations as $motivation)
+                            <tr>
+                                <td>{{$motivation->name}}</td>
+                                <td>
+                                  <a href="{{URL::to('/images/'.$motivation->file)}}">File</a>
+                                </td>
+                                <td><video width="320" height="140" controls>
+                                  <source src="{{URL::to('/images/'.$motivation->video)}}" type="video/mp4">
+                                Your browser does not support the video tag.
+                                </video>
+                              </td>
+                                {{-- <td>
+                                    <a href="{{route('course.edit',$course->id)}}" class="btn btn-sm btn-info" href="">Edit</a>
+                                    <a   href="{{URL::to('/admin/course/delete/')}}/{{$course->id}}" class="btn btn-sm btn-danger delete-button" href="">Delete</a>
+                                </td> --}}
+                            </tr>
+                        @endforeach
+                </tbody>
+            </table>
+                </div>
               </div>
             </div>
-        </div>
       </div>
     </div>
   </section>
 </div>
-@endsection
-@section('script')
-<script>
-    $(function () {
-    // Summernote
-    // $('.textarea').summernote()
-    setTimeout(function(){
-        $(".textarea").summernote("code", `{!!$motivation->details!!}`);
-
-    },2000)
-  })
-</script>
 @endsection

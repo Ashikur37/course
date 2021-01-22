@@ -46,7 +46,8 @@ class TopicController extends Controller
     {
         $videoName ="";
         if($request->video){
-            $videoName = time().'.'.$request->video->extension();  
+			
+            $videoName = time().'.mp4';  
             $request->video->move(public_path('videos'), $videoName);
         }
         Topic::create([
