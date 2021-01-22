@@ -15,4 +15,7 @@ class Topic extends Model
     public function Exercises(){
         return $this->hasMany(Exercise::class);
     }
+    public function Comments(){
+        return $this->hasMany(Comment::class);
+    }
 }

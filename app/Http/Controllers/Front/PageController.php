@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Models\BengaliGrammer;
 use App\Models\Chapter;
+use App\Models\Comment;
 use App\Models\Content;
 use App\Models\Course;
 use App\Models\CurrentAffair;
@@ -45,7 +46,21 @@ class PageController extends Controller
     }
     public function chapter($course,$chapter){
        $chapter=Chapter::where('title',$chapter)->first();
-       return view('front.chapter',compact('chapter'));
+       return view('front.chapter',compact('chapter')); 
+    }
+    public function topicComment(Topic $topic){
+        Comment::create([
+            "topic_id"=>$topic->id,
+            "user_id"=>auth()->user()->id,
+            "text"=>request()->text
+        ]);
+        return back();
+    }
+    public function topicView(Topic $topic){
+        $topic->update([
+            "view"=>$topic->view+1
+        ]);
+        return "ok";
     }
     public function literature(){
         $poets=Poet::orderBy('en_name')->get();

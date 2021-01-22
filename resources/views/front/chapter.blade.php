@@ -34,7 +34,7 @@
                 <div class="col-12 col-md-6 px-25">
                     <div class="course-content">
                         <figure class="course-thumbnail">
-                            <video width="100%" height="auto" controls onended="endVideo()">
+                            <video width="100%" height="auto" controls onended="endVideo('{{URL::to('/exercise/'.$topic->id)}}',{{$topic->exercises->count()}},{{$topic->id}})">
                                 <source src="{{URL::to('/videos/'.$topic->video)}}" type="video/mp4">
                               Your browser does not support the video tag.
                               </video>
@@ -49,8 +49,40 @@
                                     <div class="course-author"><a href="javascript::void(0)">{{$topic->chapter->course->teacher->user->name}} </a></div>
                                     <div class="course-date">{{$topic->created_at->diffForHumans()}}</div>
                                     
+                                    
+                                    
                                 </div><!-- .course-date -->
+                                Total view {{$topic->view}}
                             </header><!-- .entry-header -->
+                            <div>
+                                <br>
+                                <h4>Comments</h4> 
+                                <header class="entry-header">
+                                    @foreach($topic->comments as $comment)
+                                    <h2 class="entry-title">
+                                        {{$comment->user->name}}
+                                    </h2>
+                                    <div class="entry-meta flex flex-wrap align-items-center">
+                                    <div class="course-author">
+                                        {{$comment->text}}
+                                    </div>
+                                    <div class="course-date">
+                                        {{$comment->created_at->diffForHumans()}}
+                                    </div>
+                                    </div>
+                                    <hr>
+                                    @endforeach
+                                </header>
+                                <form action="{{URL::to('/topic/comment/'.$topic->id)}}" method="post">
+                                    @csrf
+                                    <div class="form-group">
+                                        <textarea required name="text" id="" cols="30" rows="4" class="form-control"></textarea>
+                                    <button class="btn btn-success">
+                                        Submit
+                                    </button>
+                                    </div>
+                                </form>
+                            </div>
                         </div><!-- .course-content-wrap -->
                     </div><!-- .course-content -->
                 </div><!-- .col -->
@@ -78,10 +110,13 @@
       <div class="modal-body">
         <div >
             
-            <a href="{{URL::to('/exercise/'.$topic->id)}}">
+            <a id="link">
                 <h4>
                     Exercise
-                </h4> {{$topic->exercises->count()}} question</a> 
+                </h4> 
+                <span id="count"></span>
+                question
+            </a> 
         </div>
       </div>
       <div class="modal-footer">
@@ -92,8 +127,18 @@
   </div>
 </div>
 <script>
-function endVideo(){
-    $("#myModal").modal("show")
+function endVideo(url,count,id){
+    document.getElementById("link").setAttribute("href",url);
+    document.getElementById("count").innerHTML=count;
+    var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        $("#myModal").modal("show");
+    }
+  };
+  xhttp.open("GET", "{{URL::to('/topic/view')}}/"+id, true);
+  xhttp.send();
+    
 }
 </script>
 @endsection
