@@ -81,6 +81,9 @@ Route::get('/academic','App\Http\Controllers\Front\PageController@academic')->na
 Route::get('/literature','App\Http\Controllers\Front\PageController@literature')->name('literature'); 
 Route::get('/course/{name}','App\Http\Controllers\Front\PageController@course');
 Route::get('/chapter/{course}/{chapter}','App\Http\Controllers\Front\PageController@chapter');
+///topic/view
+Route::get('/topic/view/{topic}','App\Http\Controllers\Front\PageController@topicView');
+Route::post('/topic/comment/{topic}','App\Http\Controllers\Front\PageController@topicComment');
 Route::get('/poet/en/{poet}','App\Http\Controllers\Front\PageController@poetEn');
 Route::get('/poet/bn/{poet}','App\Http\Controllers\Front\PageController@poetBn');
 Route::get('/job','App\Http\Controllers\Front\PageController@job');
@@ -114,3 +117,4 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+//ALTER TABLE `topics` ADD `view` INT NULL AFTER `video`;
