@@ -42,7 +42,7 @@
                       </tr>
                   </thead>
                   <tbody>
-                          @foreach($department->courses as $course)
+                          @foreach($courses as $course)
                               <tr>
                                   <td>{{$course->name}}</td>
                                   <td>{{$course->examQuestions->count()}}</td>

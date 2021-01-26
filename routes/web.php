@@ -78,6 +78,9 @@ Route::get('/motivation','App\Http\Controllers\Front\PageController@motivation')
 Route::get('/services','App\Http\Controllers\Front\PageController@service')->name('service'); 
 Route::get('/teacher-info','App\Http\Controllers\Front\PageController@teacher')->name('teacher'); 
 Route::get('/academic','App\Http\Controllers\Front\PageController@academic')->name('academic');
+//course/apply/5
+Route::get('/course/apply/{course}','App\Http\Controllers\Front\PageController@applyCourse');
+Route::post('/pay/{course}','App\Http\Controllers\Front\PageController@payCourse');
 Route::get('/literature','App\Http\Controllers\Front\PageController@literature')->name('literature'); 
 Route::get('/course/{name}','App\Http\Controllers\Front\PageController@course');
 Route::get('/chapter/{course}/{chapter}','App\Http\Controllers\Front\PageController@chapter');
@@ -117,4 +120,5 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
-//ALTER TABLE `topics` ADD `view` INT NULL AFTER `video`;
+//ALTER TABLE `courses` ADD `duration` VARCHAR(50) NOT NULL AFTER `logo`;
+//ALTER TABLE `courses` ADD `time_commitment` VARCHAR(100) NOT NULL AFTER `duration`, ADD `language` VARCHAR(100) NOT NULL AFTER `time_commitment`, ADD `price` VARCHAR(100) NOT NULL AFTER `language`;
