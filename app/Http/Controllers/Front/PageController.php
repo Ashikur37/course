@@ -8,6 +8,7 @@ use App\Models\Chapter;
 use App\Models\Comment;
 use App\Models\Content;
 use App\Models\Course;
+use App\Models\CoursePayment;
 use App\Models\CurrentAffair;
 use App\Models\Department;
 use App\Models\EnglishGrammer;
@@ -44,6 +45,21 @@ class PageController extends Controller
         $course=Course::where('name',$name)->first();
         return view('front.course',compact('course'));
     }
+    public function applyCourse(Course $course){
+        return view('front.apply-course',compact('course'));
+    }
+    public function payCourse(Course $course,Request $request){
+        CoursePayment::create([
+            "course_id"=>$course->id,
+            "user_id"=>auth()->user()->id,
+            "payment_method"=>$request->method,
+            "details"=>$request->details,
+            "price"=>$course->price,
+            "status"=>0
+        ]);
+        return redirect('course/'.$course->name);
+    }
+    //payCourse
     public function chapter($course,$chapter){
        $chapter=Chapter::where('title',$chapter)->first();
        return view('front.chapter',compact('chapter')); 

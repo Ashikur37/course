@@ -61,6 +61,26 @@
                         <label for="exampleInputPassword1">Logo</label>
                           <input type="file" name="image"  class="form-control-file"/>
                       </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Duration</label>
+                        <input value="{{$course->duration}}" required name="duration" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter duration">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Time Commitment</label>
+                        <input value="{{$course->time_commitment}}" required name="time_commitment" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Time Commitment">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Price</label>
+                        <input value="{{$course->price}}" required name="price" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Price">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Language</label>
+                        <select name="language" class="form-control">
+                          <option {{$course->language=="Bengali"?"selected":""}} value="Bengali">Bengali</option>
+                          <option {{$course->language=="English"?"selected":""}} value="English">English</option>
+                        </select>
+                        
+                      </div>
                     <div class="card-footer">
                       <button type="submit" class="btn btn-primary">Submit</button>
                     </div>

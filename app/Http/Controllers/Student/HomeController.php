@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
 use App\Models\Course;
+use App\Models\CoursePayment;
 use App\Models\Department;
 use App\Models\ExamQuestion;
 use App\Models\StudentExam;
@@ -16,7 +17,9 @@ class HomeController extends Controller
     }
     public function exam(){
         $department =Department::find(auth()->user()->department_id);
-        return view('student.home.exam',compact('department'));
+        $courseIds=CoursePayment::where('user_id',auth()->user()->id)->get()->pluck('course_id');
+        $courses=Course::whereIn('id',$courseIds)->get();
+        return view('student.home.exam',compact('department','courses'));
     }
     public function result(){
         $exams=StudentExam::where('user_id',auth()->user()->id)->get();

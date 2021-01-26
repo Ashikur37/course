@@ -51,7 +51,12 @@ class CourseController extends Controller
             "name"=>$request->name,
             "department_id"=>$request->department_id,
             "teacher_id"=>$request->teacher_id,
-            "logo"=>$imageName
+            "logo"=>$imageName,
+            "duration"=>$request->duration,
+            "time_commitment"=>$request->time_commitment,
+            "price"=>$request->price,
+            "language"=>$request->language,
+
         ]);
         return redirect()->route('course.index'); 
     }   
@@ -101,6 +106,12 @@ class CourseController extends Controller
         $course->teacher_id=$request->teacher_id;
 
         $course->save();
+        $course->update([
+        "duration"=>$request->duration,
+        "time_commitment"=>$request->time_commitment,
+        "price"=>$request->price,
+        "language"=>$request->language 
+        ]);
         return redirect()->route('course.index'); 
 
     }
