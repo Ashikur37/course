@@ -16,6 +16,7 @@
     
 <div class="icon-boxes">
     <div class="container-fluid">
+        @if(request()->type=="academic")
         <br>
         <center>
         <h1>Academic</h1>
@@ -34,6 +35,7 @@
                 @endforeach
             </div>
         </div>
+        @else
         <br>
         <center>
             <h1>Non Academic</h1>
@@ -68,6 +70,8 @@
                 </div>
             </div>
             <br>
+        @endif
+
     </div>
 </div>
 @endsection

@@ -30,6 +30,9 @@
         .fade {
     opacity: 1;
     }
+    .open>.dropdown-menu{
+        display: block !important;
+    }
     </style>
 </head>
 <body>
@@ -87,9 +90,18 @@
                             <nav class="site-navigation flex justify-content-end align-items-center">
                                 <ul class="flex flex-column flex-lg-row justify-content-lg-end align-content-center">
                                     <li class="current-menu-item"><a href="{{URL::to('/')}}">Home</a></li>
-                                    <li><a href="{{route('service')}}">Services</a></li>
+                                     <li><a href="{{route('service')}}">Services</a></li> -->
                                    
-                                    <li><a href="{{route('teacher')}}">Instructor</a></li>
+                                    <li><a href="{{route('teacher')}}">Instructor</a></li> -->
+                                    <li class="dropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Services 
+                                        <span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                          <li><a href="{{route('service')}}?type=academic">Academic</a></li>
+                                          <li><a href="{{route('service')}}?type=non-academic">Non Academic</a></li>
+                                        </ul>
+                                      </li>
+                                   <!-- <li><a href="{{route('teacher')}}">Instructor</a></li>
                                     <li><a href="{{route('contact')}}">Contact</a></li>
                                 </ul>
 
