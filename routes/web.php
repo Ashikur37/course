@@ -71,7 +71,7 @@ Route::group(['prefix' => 'teacher',  'middleware' => 'is_teacher'],function() {
     Route::post('/{course}/exam/create','App\Http\Controllers\Teacher\ExamController@store');
     Route::get('/exam/delete/{exam}','App\Http\Controllers\Teacher\ExamController@destroy'); 
     //course/3/chapter/create
-
+	//ami dekhe thik kore dicchi
 });
 Route::get('/contact','App\Http\Controllers\Front\PageController@contact')->name('contact'); 
 Route::get('/motivation','App\Http\Controllers\Front\PageController@motivation'); 
